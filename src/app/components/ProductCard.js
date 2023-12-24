@@ -14,8 +14,7 @@ export default function ProductCard ( {product} ) {
 
     return (
         <Link
-        href="/modal1"
-        /* href={`/productView/${product.id}`} */
+        href={`/productView/${product.id}`}
         className={
           isDesktop
             ? "flex flex-col w-3/12 p-4 justify-start tracking-wider	 text-[#515151]	cursor-pointer mt-8 "
