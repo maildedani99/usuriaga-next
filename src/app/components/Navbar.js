@@ -23,7 +23,7 @@ export default async function Navbar() {
       </div>
       <div className="flex flex-row flex-1 border-b">
         <Link
-          href='/novelties'
+          href='/products/novelties'
           className=" p-6 w-2/12	my-auto ">
           <Image className="mx-auto" src='/logogrisprueba.png' alt="Usuriaga" width={250} height={100} />
         </Link>

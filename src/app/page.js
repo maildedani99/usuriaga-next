@@ -3,6 +3,6 @@ import { redirect } from "next/navigation";
 
 export default function Home() {
   
-    redirect('/novelties')
+    redirect('/products/novelties')
 
 }
