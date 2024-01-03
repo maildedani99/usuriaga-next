@@ -1,6 +1,5 @@
 import CarouselWrapper from './CarouselWrapper';
 import ButtonAddToCart from './ButtonAddToCart';
-import SizesOptions from './SizesOptions';
 import Modal from './Modal';
 import CloseModalIcon from './CloseModalIcon';
 
@@ -23,22 +22,7 @@ export default function ProductViewCard({ product }) {
                     <span className="   font-body text-base tracking-wider	font-light	  	mt-4">
                         {product.description}
                     </span>
-                    <div className="flex flex-col  w-6/6 mt-8 text-lg font-medium ">
-                        Tallas
-                        <div className="flex   ">
-                            <SizesOptions product={product}  />
-                            {/* {product.sizes &&
-                                product.sizes.map((size) => (
-                                    <div
-                                        key={size.id}
-                                        className="border mr-3 p-2 mt-2 font-normal"
-                                    >
-                                        <span className="mr-3  mx-auto "> {size.name} </span>
-                                    </div>
-                                ))} */}
-                        </div>
-                        <div className="flex "></div>
-                    </div>
+                   
                 </div>
                 <div className="flex w-5/6 p-8 mx-auto">
                     <ButtonAddToCart item={product} />

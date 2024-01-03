@@ -18,8 +18,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.className} ${workSans.className} antialiased text-secondary `}
       >
-        <Navbar />
         <CartProvider>
+        <Navbar />
           {children}
         </CartProvider>
         <Footer />

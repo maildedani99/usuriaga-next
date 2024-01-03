@@ -1,19 +1,26 @@
 "use client"
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { CartContext } from "../lib/cartContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
-export default function QuantitySelector  ({ item })  {
+export default function QuantitySelector({ item }) {
 
-  const { handlePlus } = useContext(CartContext)
-  /* const handlePlus = () => {
+  const { addQuantity, removeQuantity } = useContext(CartContext)
+
+  const [quantity, setQuantity] = useState(item.quantity ? item.quantity : 1)
+
+  const handlePlus = (item) => {
     setQuantity(quantity + 1);
+    addQuantity(item)
   };
-  const handleMinus = () => {
-    quantity > 1 && setQuantity(quantity - 1);
-  }; */
 
-  const quantity = item.quantity ? item.quantity : 1
+  const handleMinus = (item) => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+      removeQuantity(item)
+    }
+  };
+
 
   return (
     <div className="mx-auto text-slate-500">
@@ -22,14 +29,14 @@ export default function QuantitySelector  ({ item })  {
           size={15}
           color="#636364"
           className="mt-1.5 cursor-pointer"
-          /* onClick={handleMinus} */
+          onClick={() => handleMinus(item)}
         />
         <span className="mx-6 select-none text-base ">{quantity}</span>
         <FiPlus
           size={15}
           color="#636364"
           className="mt-1.5 cursor-pointer"
-          onClick={()=>handlePlus(item.id)}
+          onClick={() => handlePlus(item)}
         />
       </div>
       <div></div>

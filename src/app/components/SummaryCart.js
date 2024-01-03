@@ -1,5 +1,27 @@
+"use client"
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../lib/cartContext";
 
 export default function SummaryCart  (props) {
+
+  const { cartItems } = useContext(CartContext);
+
+  const [subtotal, setSubtotal] = useState(0);
+
+  const envio = 3.90;
+  const iva = 21;
+
+  const getPaymentData = () => {
+    const amount = cartItems.map(item => item.price * item.quantity).reduce((a, b) => a + b, 0);
+   setSubtotal(amount);
+  }
+
+  useEffect(()=> {
+    getPaymentData();
+  },[cartItems]);
+
+
+
   return (
     <div className="flex flex-1 h-75 mb-10   border-2 border-[#DAC895]">
       <div className="flex-col flex-1">
@@ -12,7 +34,7 @@ export default function SummaryCart  (props) {
             <span> (impuestos inc.) </span>
           </div>
           <div>
-            <span>112.89 €</span>
+            <span>{(((subtotal * iva) / 100)+ subtotal ).toFixed(2)} €</span>
           </div>
         </div>
         <div className="flex w-3/3  py-3 justify-between	mx-6 mt-6">
@@ -20,7 +42,7 @@ export default function SummaryCart  (props) {
             <span className="uppercase text-lg ">envío</span>
           </div>
           <div>
-            <span>3.90 €</span>
+            <span>{envio.toFixed(2)} €</span>
           </div>
         </div>
         <div className="flex w-3/3  border-t-2 border-[#DAC895] py-3 justify-between	mx-6 mt-10">
@@ -29,7 +51,7 @@ export default function SummaryCart  (props) {
             <span> (incluye 19.59€ IVA) </span>
           </div>
           <div>
-            <span>112.89 €</span>
+            <span>{subtotal ? (((subtotal * iva) / 100) + subtotal + envio ).toFixed(2) : "0.00"} €</span>
           </div>
         </div>
         <div className="flex w-5/6 p-8 mx-auto mt-16">
