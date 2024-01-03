@@ -18,6 +18,7 @@ export default function SummaryCart  (props) {
 
   useEffect(()=> {
     getPaymentData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[cartItems]);
 
 
