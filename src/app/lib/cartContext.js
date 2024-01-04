@@ -11,18 +11,14 @@ export const CartProvider = ({ children }) => {
 
 
     const addItemToCart = (item, sizeSelectedOption) => {
-    console.log(item, sizeSelectedOption)
-    console.log(cartItems)
     const matchSizeIndex = cartItems.findIndex(
       (object) => object.id === item.id && object.size.id === sizeSelectedOption.id
     );
     if (matchSizeIndex !== -1) {
       cartItems[matchSizeIndex].quantity += 1;
-      console.log("Incrementando la cantidad del item en el carro.");
       setCartItems(cartItems)
     } else {
       const quantityItem = { ...item, quantity: 1, size: sizeSelectedOption }
-      console.log("Añadiendo un nuevo item al carro.");
       setCartItems([...cartItems, quantityItem]);
     }
   };

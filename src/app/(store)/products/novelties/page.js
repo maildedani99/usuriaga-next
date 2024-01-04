@@ -7,7 +7,6 @@ export default async function Novelties() {
 
   const products = await getNovelties()
 
-  console.log("recarga novelties")
 
   return (
     <>

@@ -15,8 +15,9 @@ export default function ButtonAddToCart({ item }) {
     };
 
     
-    const showToastMessage = () => {
-        toast.success("Tu producto se ha añadido a la cesta", {
+    const showToastMessage = (item) => {
+        console.log(item)
+        toast.success("Este producto se ha añadido a la cesta", {
             position: toast.POSITION.TOP_CENTER,
             autoClose:2000
         });
@@ -24,7 +25,7 @@ export default function ButtonAddToCart({ item }) {
     
     const handleAddItemToCard = () => {
         addItemToCart(item, sizeSelectedOption)
-        showToastMessage()
+        showToastMessage(item)
     }
     
     useEffect(() => {

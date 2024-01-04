@@ -24,7 +24,6 @@ export default function Carousel({ product }) {
     setCurrentSlide(newSlide);
   };
 
-console.log(product)
   return (
     <div className="relative">
       <AiOutlineLeft
