@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useContext } from "react";
 import { CartContext } from "../lib/cartContext";
+import Image from "next/image";
 
 
 export default function ProductCard ( {product} ) {
@@ -15,14 +16,11 @@ export default function ProductCard ( {product} ) {
     return (
         <Link
         href={`/productView/${product.id}`}
-        className={
-          isDesktop
-            ? "flex flex-col w-3/12 p-4 justify-start tracking-wider	 text-[#515151]	cursor-pointer mt-8 "
-            : "flex flex-col w-6/12 p-2 justify-center cursor-pointer mt-8 tracking-wider	 text-[#515151]"
-        }
+        className="flex flex-col  p-4 justify-start tracking-wider	 text-[#515151]	cursor-pointer mt-8 "
+            
         //onClick={() => ProductHandleClick(product.id)}
       >
-        <img src={product.images[0].url && product.images[0].url} alt="foto" />
+        <Image src={product.images[0].url && product.images[0].url} width={300} height={300} alt="foto" />
         <span className=" text-base	 mx-auto mt-2">{product.name}</span>
         {product.discount == true && product.reduced_price !== 0 ? (
           <div className="flex  mx-auto ml-1  ">

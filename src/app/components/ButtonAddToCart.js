@@ -29,6 +29,7 @@ export default function ButtonAddToCart({ item }) {
     
     useEffect(() => {
         setSizeSelectedOption(item.sizes[0])
+          // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     
