@@ -27,7 +27,7 @@ export default function NavbarMobile  ({ categories })  {
 
   return (
     <div>
-      <HeaderWrapper className="flex flex-1 w-full my-auto px-4 border-b fixed bg-white">
+      <HeaderWrapper className="flex flex-1 w-full my-auto px-8 border-b fixed bg-white">
         <div>
           <CartIcon />
         </div>

@@ -13,8 +13,8 @@ export default function CartItems({ item }) {
   
   return (
     <div className="flex flex-col flex-1 mx-10 h-48">
-      {cartItems.length !== 0 ? (
-        cartItems.map((item) => (
+      {cartItems && cartItems.length !== 0 ? (
+        cartItems?.map((item) => (
           <div key={item.id + item.size.id + item.price} className="flex flex-1 border-t border-[#DAC895] my-auto">
             <div className="my-2 w-2/12 ">
               <Image src={item.images[0].url} alt="imagen" width={80} height={100} />

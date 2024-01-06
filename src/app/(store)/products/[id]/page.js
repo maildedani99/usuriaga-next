@@ -7,7 +7,7 @@ export default async function Products({ params }) {
 
   const products = await getProductsBySubcategory(params.id)
   const subcategory = await getSubcategory(params.id)
-  const title = subcategory[0].name
+  const title = subcategory ? subcategory[0].name : "ERROR"
 
   return (
 

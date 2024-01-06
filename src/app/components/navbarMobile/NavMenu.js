@@ -19,7 +19,9 @@ export default function NavMenu({ open, categories, onSubMenuOpen, switchMenuOpe
             </span>
           </Link>
         </div>
-        {categories.map(
+        {
+          categories &&
+        categories?.map(
           (category) =>
             category.subcategories.length > 0 && (
               <div

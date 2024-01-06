@@ -12,7 +12,7 @@ export default function SummaryCart  (props) {
   const iva = 21;
 
   const getPaymentData = () => {
-    const amount = cartItems.map(item => item.price * item.quantity).reduce((a, b) => a + b, 0);
+    const amount = cartItems?.map(item => item.price * item.quantity).reduce((a, b) => a + b, 0);
    setSubtotal(amount);
   }
 

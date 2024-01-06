@@ -18,7 +18,7 @@ export default function NavSubMenu({
     <NavbarWrapper open={subMenuOpen}>
       <div className="flex  flex-col capitalize mt-8  bg-white h-screen	w-screen	">
         {subCategories &&
-          subCategories.map((subCategory) => (
+          subCategories?.map((subCategory) => (
             <Link
               href={`/products/${subCategory.id}`}
               key={subCategory.id}

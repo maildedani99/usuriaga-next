@@ -7,7 +7,8 @@ import Link from "next/link"
 
 export default function NavbarLink ({categories}) {
 return (
-    categories.map((category) => (
+  categories &&
+    categories?.map((category) => (
         <div key={category.id} className="dropdown  hover:text-primary">
           {category.subcategories.length > 0 &&
             category.name !== "Outlet" && (
@@ -17,7 +18,9 @@ return (
             )}
           {category.subcategories.length > 0 && (
             <div className="dropdown-content  text-sm text-secondary ">
-              {category.subcategories.map((subcategory) => (
+              {
+                category &&
+              category?.subcategories?.map((subcategory) => (
                 <Link
                 href={`/products/${subcategory.id}`}
                   key={subcategory.id}

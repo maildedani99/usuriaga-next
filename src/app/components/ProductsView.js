@@ -7,8 +7,8 @@ export default function ProductsView({ products, title }) {
         <span className="">{title}</span>
       </div>
       <div className=" grid grid-cols-2 xl:grid-cols-4 md:grid-cols-3  text-5xl justify-center w-full tracking-wider capitalize font-light	text-[#515151] text-center" >
-        {products.length > 0 ? (
-          products.map((product) => (
+        {products && products.length > 0 ? (
+          products?.map((product) => (
             <ProductCard product={product} key={product.id} />
           ))
         ) : (
