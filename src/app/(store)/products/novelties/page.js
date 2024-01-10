@@ -7,7 +7,7 @@ export default async function Novelties() {
 
   const products = await getNovelties()
 
-
+console.log(products)
   return (
     <>
     

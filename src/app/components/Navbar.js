@@ -77,12 +77,10 @@ export default async function Navbar() {
             </div>
           </div>
           <div className="flex  	py-10 px-4 justify-between w-1/12 max-w-sm opacity-70">
-            {/*  <FiSearch size={25} color="#636364" /> */}
-            {/*   <span className="cursor-pointer">
-              <FiUser size={25} color="#636364" />
-            </span> */}
+         
             <CartIcon />
           </div>
+       
         </div>
       </div>
       <div className="flex lg:hidden w-full fixed flex-col bg-white top-0 z-10	">

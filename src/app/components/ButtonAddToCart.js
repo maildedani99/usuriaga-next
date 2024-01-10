@@ -20,6 +20,7 @@ export default function ButtonAddToCart({ item }) {
         toast.success("Este producto se ha añadido a la cesta", {
             position: toast.POSITION.TOP_CENTER,
             autoClose:2000
+            
         });
     };
     
@@ -35,9 +36,9 @@ export default function ButtonAddToCart({ item }) {
 
     
     return (
-        <div className="flex flex-col  w-6/6 mt-8 text-lg font-medium ">
+        <div className="flex flex-1 flex-col  w-full mt-8 text-lg font-medium ">
             Tallas
-            <div className="flex   ">
+            <div className="flex flex-1  ">
                 {
                     item.sizes &&
                     item.sizes.map((size) => (

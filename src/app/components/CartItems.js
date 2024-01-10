@@ -7,31 +7,33 @@ import { useContext } from "react";
 import { CartContext } from "../lib/cartContext";
 import Link from "next/link";
 
-export default function CartItems({ item }) {
+export default function CartItems() {
   const { cartItems, removeItemFromCart, handlePlus } = useContext(CartContext);
 
   
   return (
-    <div className="flex flex-col flex-1 mx-10 h-48">
+    <div className="flex flex-col w-full lg:mx-10   ">
       {cartItems && cartItems.length !== 0 ? (
         cartItems?.map((item) => (
-          <div key={item.id + item.size.id + item.price} className="flex flex-1 border-t border-[#DAC895] my-auto">
-            <div className="my-2 w-2/12 ">
-              <Image src={item.images[0].url} alt="imagen" width={80} height={100} />
+          <div key={item.id + item.size.id + item.price} className="flex  border-t border-[#DAC895]  h-auto">
+            <div className="hidden sm:flex w-1/12 lg:w-2/12 my-auto ">
+              <Image src={item.images[0].url} alt="imagen" width={80} height={100} className="py-2"/>
             </div>
             <div className="flex my-auto flex-1">
-              <div className="flex flex-col ml-4 text-lg w-2/6 font-medium">
+              <div className="flex flex-col ml-4 text-base lg:text-lg w-2/6 font-medium my-auto">
                 <span className="">{item.name}</span>
                 <span className="mt-2">{item.price} €</span>
               </div>
-              <div className="flex flex-col ml-4 text-lg  font-medium">
+              <div className="flex flex-col ml-4 text-base lg:text-lg  font-medium my-auto text-center">
                 <span className="">Talla</span>
                 <span className="mt-2">{item.size.name}</span>
               </div>
+              <div className="flex mx-auto flex-1 my-auto">
               <QuantitySelector item={item} handlePlus={handlePlus} />
-              <span className="font-bold text-lg mr-4">{item.price * item.quantity} €</span>
+              </div>
+              <span className="font-bold text-base lg:text-lg mr-4 my-auto">{item.price * item.quantity} €</span>
               <div
-                className="flex b-0 mt-1 ml-4 cursor-pointer justify-end"
+                className="flex   mx-auto cursor-pointer justify-end my-auto"
                 onClick={() => removeItemFromCart(item)}
               >
                 <FaRegTrashAlt />
