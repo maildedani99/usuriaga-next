@@ -54,7 +54,7 @@ export default function ButtonAddToCart({ item }) {
                 }
             </div>
             <input
-                className=" flex mt-10 flex-1 p-4 text-xl text-white  cursor-pointer text-center mb-8 capitalize focus:outline-none"
+                className=" flex mt-10 flex-1 p-4 text-xl text-white  cursor-pointer text-center mb-8  focus:outline-none"
                 defaultValue="Añadir al Carro"
                 readOnly
                 onClick={handleAddItemToCard}

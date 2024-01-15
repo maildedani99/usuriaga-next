@@ -22,7 +22,7 @@ export default async function Navbar() {
         >
           <div className="flex flex-1 w-3/5 justify-center  p-1 	 tracking-widest ">
             <span className="">
-              ENVÍOS GRATIS para compras superiores a 60€
+              ENVÍOS GRATIS para compras superiores a 80€
             </span>
           </div>
         </div>
@@ -40,7 +40,6 @@ export default async function Navbar() {
           <div className="flex w-9/12 justify-center capitalize tracking-wide text-lg font-[400]		 ">
             <div className=" self-center">
               <div className="dropdown  hover:text-primary">
-                <div className="bg-[#dac895] rounded-full ">
                   <Link
                     href="/products/novelties"
                     id="novelties"
@@ -49,7 +48,6 @@ export default async function Navbar() {
                   >
                     Novedades
                   </Link>
-                </div>
               </div>
               <NavbarLink categories={categories} />
               <div className="dropdown  hover:text-primary">

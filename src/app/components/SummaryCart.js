@@ -67,7 +67,7 @@ export default function SummaryCart(props) {
           <div className="flex w-5/6 p-8 mx-auto mt-16">
             <Link
               href={cartItems.length > 0 ? "/payForm" : "#"}
-              className={`flex flex-1 p-4 text-xl text-white text-center mb-8 capitalize cursor-pointer bg-primary ${cartItems.length === 0 && ' cursor-default opacity-50'}`}
+              className={`flex flex-1 p-4 text-xl text-white text-center mb-8  cursor-pointer bg-primary ${cartItems.length === 0 && ' cursor-default opacity-50'}`}
             >
               <span className="mx-auto">
                 Comprar
