@@ -18,7 +18,6 @@ export default function SummaryCart(props) {
 
   const envio = totalPrice >= 80 ? 0 : 3.90;
 
-  const ivaRate = 1.21;
 
   const getPaymentData = () => {
     const amount = cartItems?.map(item => item.price * item.quantity).reduce((a, b) => a + b, 0);
@@ -61,7 +60,7 @@ export default function SummaryCart(props) {
               <span className="uppercase text-lg ">total</span>
             </div>
             <div>
-              <span>{totalPrice ? ((totalPrice * ivaRate) + totalPrice + envio).toFixed(2) : "0.00"} €</span>
+              <span>{totalPrice ? (totalPrice + envio).toFixed(2) : "0.00"} €</span>
             </div>
           </div>
           <div className="flex w-5/6 p-8 mx-auto mt-16">

@@ -1,11 +1,13 @@
+import CloseModalIcon from "../components/CloseModalIcon";
 import Modal from "../components/Modal";
 
 export default function Legals() {
   return (
     <Modal>
-
-    <div className="flex flex-col container mx-auto w-full mt-44 justify-center tracking-wider  font-light		text-[#515151]">
-      <h2 className="text-5xl mx-auto">Aviso Legal y Privacidad</h2>
+      <div className="relative">
+       <CloseModalIcon  />
+    <div className=" flex flex-col container mx-auto w-full justify-center tracking-wider  font-light		text-[#515151]">
+      <h2 className="text-5xl mx-auto mt-20">Aviso Legal y Privacidad</h2>
       <h3 className="text-3xl mt-14">Privacidad</h3>
       <p className="text-justify mt-5">
         En cumplimiento de la LOPD 15/1999 y de la LSSI-CE 34/2002, se informa
@@ -54,6 +56,8 @@ export default function Legals() {
         comunicación de sus datos a Usuriaga Collection.
       </p>
     </div>
+    </div>
+
     </Modal>
 
   );
