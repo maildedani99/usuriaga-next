@@ -39,7 +39,7 @@ export default async function Navbar() {
 
           <div className="flex w-9/12 justify-center capitalize tracking-wide text-lg font-[400]		 ">
             <div className=" self-center">
-              <div className="dropdown  hover:text-primary">
+              <div className="dropdown bg-primary rounded-full hover:text-primary">
                   <Link
                     href="/products/novelties"
                     id="novelties"
