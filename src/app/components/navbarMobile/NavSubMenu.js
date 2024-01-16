@@ -23,10 +23,10 @@ export default function NavSubMenu({
               href={`/products/${subCategory.id}`}
               key={subCategory.id}
               id={subCategory.id}
-              className="text-5xl mt-8 mx-2 capitalize cursor-pointer "
+              className="text-2xl mt-8 mx-2 capitalize cursor-pointer "
               onClick={(e) => onClickCategories(e.target.id)}
             >
-              <span className="text-[#636364]">
+              <span className="text-[#636364] ">
                 {subCategory.name}
               </span>
             </Link>
