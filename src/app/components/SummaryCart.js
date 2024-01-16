@@ -36,7 +36,7 @@ export default function SummaryCart(props) {
       <div className="flex flex-1   border-2 border-[#DAC895]">
         <div className="flex-col flex-1">
           <div className="mt-8 text-2xl px-6">
-            <span>Resumen Carrito</span>
+            <span>Resumen Cesta</span>
           </div>
           <div className="flex w-3/3  border-y-2 border-[#DAC895] py-3 justify-between	mx-6 mt-10">
             <div>
@@ -68,7 +68,7 @@ export default function SummaryCart(props) {
               href={cartItems.length > 0 ? "/payForm" : "#"}
               className={`flex flex-1 p-4 text-xl text-white text-center mb-8  cursor-pointer bg-primary ${cartItems.length === 0 && ' cursor-default opacity-50'}`}
             >
-              <span className="mx-auto">
+              <span className="mx-auto uppercase">
                 Comprar
               </span>
             </Link>

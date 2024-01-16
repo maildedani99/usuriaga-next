@@ -43,7 +43,7 @@ export default function CartItems() {
         ))
       ) : (
         <div className="flex flex-1 flex-col mx-auto ">
-          <h1 className="text-primary text-4xl mx-auto mt-32 text-center">Tu carrito está vacío</h1>
+          <h1 className="text-primary text-4xl mx-auto mt-32 text-center">Tu cesta está vacía</h1>
           <Link href="/">
             <LiaCartPlusSolid size={100} color="#dac895" strokeWidth={0.1} className="mx-auto mt-8 " />
           </Link>

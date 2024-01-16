@@ -43,6 +43,7 @@ export default function ShoppingList() {
               </div>
             </div>
         ))}
+     
       <div className="text-base mx-auto mt-16 mb-16 border-t border-primary">
         <div className="flex flex-1 mx-auto justify-between mt-3">
           <span className="">Total compra: </span>

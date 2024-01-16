@@ -1,6 +1,6 @@
 export default function Layout(props) {
   return (
-    <div className="flex flex-col container mt-40 mx-auto">
+    <div className="flex flex-col container mt-44 mx-auto">
       {props.children}
       <div className="flex flex-col lg:flex-row flex-1 py-20">
         <div className="flex  w-full lg:w-8/12 px-8 ">{props.cart}</div>
