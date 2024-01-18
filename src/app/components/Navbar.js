@@ -10,6 +10,7 @@ import Link from "next/link";
 import CartIcon from "./CartIcon";
 import NavbarMobile from "./navbarMobile/NavbarMobile";
 
+
 export default async function Navbar() {
   const categories = await getCategories();
 

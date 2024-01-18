@@ -5,6 +5,7 @@ import { useContext, useEffect } from "react";
 import { CartContext } from "../lib/cartContext";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { HiLockClosed } from "react-icons/hi2";
 
 export default function ButtonAddToCart({ item }) {
 
@@ -60,6 +61,9 @@ export default function ButtonAddToCart({ item }) {
                 onClick={handleAddItemToCard}
                 style={{ backgroundColor: "#dac895" }}
             />
+            <div className="flex">
+            <HiLockClosed size={20} color="#dac895" className="my-auto" /> <span className="text-base text-primary my-auto ml-1 mt-1">Pago seguro</span>
+            </div>
             <ToastContainer />
         </div>
 

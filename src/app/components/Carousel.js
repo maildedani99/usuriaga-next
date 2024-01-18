@@ -43,8 +43,8 @@ export default function Carousel({ product }) {
                 alt="Imagen"
                   key={image.id}
                   src={image.url}
-                    width={500}
-                    height={500}
+                    width={450}
+                    height={680}
                 />
               );
             }
