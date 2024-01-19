@@ -4,11 +4,11 @@ import QuantitySelector from "./QuantitySelector";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { useContext } from "react";
-import { CartContext } from "../lib/cartContext";
+import { AppContext } from "../lib/AppContext";
 import Link from "next/link";
 
 export default function CartItems() {
-  const { cartItems, removeItemFromCart, handlePlus } = useContext(CartContext);
+  const { cartItems, removeItemFromCart, handlePlus } = useContext(AppContext);
 
   
   return (

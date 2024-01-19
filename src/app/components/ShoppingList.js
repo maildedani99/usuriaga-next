@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
-import { CartContext } from "../lib/cartContext";
+import { AppContext } from "../lib/AppContext";
 import Image from "next/image";
 
 export default function ShoppingList() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems } = useContext(AppContext);
 
   const totalPrice =
     cartItems &&

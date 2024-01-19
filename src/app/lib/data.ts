@@ -51,3 +51,8 @@ export  async function getProductsBySubcategory (id) {
     return fetchApiData(url);
   };
 
+  export  async function getProducts () {
+    const url = process.env.NEXT_PUBLIC_API_URL + "products/all";
+    return fetchApiData(url);
+  };
+

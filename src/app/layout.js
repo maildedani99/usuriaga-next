@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar.js";
 import Footer from "./components/Footer";
 import { workSans } from "./ui/fonts";
-import { CartProvider } from "./lib/cartContext";
+import { CartProvider } from "./lib/AppContext";
 
 const inter = Inter({ subsets: ["latin"] });
 

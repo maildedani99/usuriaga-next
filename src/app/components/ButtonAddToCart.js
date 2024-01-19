@@ -2,14 +2,14 @@
 "use client"
 
 import { useContext, useEffect } from "react";
-import { CartContext } from "../lib/cartContext";
+import { AppContext } from "../lib/AppContext";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { HiLockClosed } from "react-icons/hi2";
 
 export default function ButtonAddToCart({ item }) {
 
-    const { addItemToCart, sizeSelectedOption, setSizeSelectedOption } = useContext(CartContext);
+    const { addItemToCart, sizeSelectedOption, setSizeSelectedOption } = useContext(AppContext);
 
     const handleSelection = (size) => {
         setSizeSelectedOption(size);

@@ -1,11 +1,11 @@
 "use client"
 import { FiMinus, FiPlus } from "react-icons/fi";
-import { CartContext } from "../lib/cartContext";
+import { AppContext } from "../lib/AppContext";
 import { useContext, useState } from "react";
 
 export default function QuantitySelector({ item }) {
 
-  const { addQuantity, removeQuantity } = useContext(CartContext)
+  const { addQuantity, removeQuantity } = useContext(AppContext)
 
   const [quantity, setQuantity] = useState(item.quantity ? item.quantity : 1)
 

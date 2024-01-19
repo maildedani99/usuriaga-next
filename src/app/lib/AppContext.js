@@ -2,11 +2,13 @@
 
 import React, { createContext, useState } from "react";
 
-export const CartContext = createContext();
+export const AppContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [sizeSelectedOption, setSizeSelectedOption] = useState("");
+  const [searchBarIsOpen, setSearchBarIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("")
 
 
 
@@ -42,10 +44,10 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider
-      value={{ cartItems, addItemToCart, removeItemFromCart, addQuantity, sizeSelectedOption, setSizeSelectedOption, removeQuantity }}
+    <AppContext.Provider
+      value={{ cartItems, addItemToCart, removeItemFromCart, addQuantity, sizeSelectedOption, setSizeSelectedOption, removeQuantity, searchBarIsOpen, setSearchBarIsOpen, searchTerm, setSearchTerm }}
     >
       {children}
-    </CartContext.Provider>
+    </AppContext.Provider>
   );
 };

@@ -5,7 +5,7 @@ import Link from "next/link"
 //import "./navbar.css";
 
 
-export default function NavbarLink ({categories}) {
+export default function NavbarLinks ({categories}) {
 return (
   categories &&
     categories?.map((category) => (

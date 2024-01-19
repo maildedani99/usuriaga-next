@@ -1,11 +1,11 @@
 "use client"
 import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../lib/cartContext";
+import { AppContext } from "../lib/AppContext";
 import Link from "next/link";
 
 export default function SummaryCart(props) {
 
-  const { cartItems } = useContext(CartContext);
+  const { cartItems } = useContext(AppContext);
 
   const [subtotal, setSubtotal] = useState(0);
 

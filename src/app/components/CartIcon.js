@@ -1,12 +1,12 @@
 "use client"
 import Link from "next/link";
 import { FiShoppingCart } from "react-icons/fi";
-import { CartContext } from "../lib/cartContext";
+import { AppContext } from "../lib/AppContext";
 import { useContext } from "react";
 
 export default  function CartIcon() {
 
-    const { cartItems, removeItemFromCart, handlePlus } = useContext(CartContext);
+    const { cartItems, removeItemFromCart, handlePlus } = useContext(AppContext);
   return (
     <Link href="/cartView" className="cursor-pointer relative">
       <div className="relative">
