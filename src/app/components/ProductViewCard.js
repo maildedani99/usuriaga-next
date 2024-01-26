@@ -2,8 +2,10 @@ import CarouselWrapper from "./CarouselWrapper";
 import ButtonAddToCart from "./ButtonAddToCart";
 import Modal from "./Modal";
 import CloseModalIcon from "./CloseModalIcon";
+import ProductCard from "./ProductCard";
 
 export default function ProductViewCard({ product }) {
+
   return (
     <Modal>
       <div className="flex flex-1 relative  container mx-auto 	text-[#636364]">

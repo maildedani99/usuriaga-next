@@ -1,6 +1,7 @@
 "use client"
 
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import { getColors, getSizes } from "./data"; 
 
 export const AppContext = createContext();
 
@@ -8,7 +9,9 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [sizeSelectedOption, setSizeSelectedOption] = useState("");
   const [searchBarIsOpen, setSearchBarIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
+  const [colors, setColors] = useState([]);
+  const [sizes, setSizes] = useState([]);
 
 
 
@@ -43,9 +46,19 @@ export const CartProvider = ({ children }) => {
     setCartItems(updatedCartItems);
   };
 
+  useEffect(()=> {
+    const getColorsSizes = async () => {
+     const  resColors = await getColors();
+     const resSizes = await getSizes();
+      setColors(resColors)
+      setSizes(resSizes)
+    }
+    getColorsSizes()
+  },[])
+
   return (
     <AppContext.Provider
-      value={{ cartItems, addItemToCart, removeItemFromCart, addQuantity, sizeSelectedOption, setSizeSelectedOption, removeQuantity, searchBarIsOpen, setSearchBarIsOpen, searchTerm, setSearchTerm }}
+      value={{ cartItems, addItemToCart, removeItemFromCart, addQuantity, sizeSelectedOption, setSizeSelectedOption, removeQuantity, searchBarIsOpen, setSearchBarIsOpen, searchTerm, setSearchTerm, colors, sizes }}
     >
       {children}
     </AppContext.Provider>
