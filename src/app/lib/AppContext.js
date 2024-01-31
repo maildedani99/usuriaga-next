@@ -1,14 +1,14 @@
 "use client"
 
 import React, { createContext, useEffect, useState } from "react";
-import { getColors, getSizes } from "./data"; 
+import { getColors, getSizes } from "./data";
 
 export const AppContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  const [sizeSelectedOption, setSizeSelectedOption] = useState("");
-  const [colorSelectedOption, setColorSelectedOption] = useState("");
+  const [sizeSelectedOption, setSizeSelectedOption] = useState(null);
+  const [colorSelectedOption, setColorSelectedOption] = useState(null);
   const [searchBarIsOpen, setSearchBarIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [colors, setColors] = useState([]);
@@ -16,7 +16,7 @@ export const CartProvider = ({ children }) => {
 
 
 
-    const addItemToCart = (item, sizeSelectedOption) => {
+  const addItemToCart = (item, sizeSelectedOption) => {
     const matchSizeIndex = cartItems.findIndex(
       (object) => object.id === item.id && object.size.id === sizeSelectedOption.id
     );
@@ -47,15 +47,15 @@ export const CartProvider = ({ children }) => {
     setCartItems(updatedCartItems);
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     const getColorsSizes = async () => {
-     const  resColors = await getColors();
-     const resSizes = await getSizes();
+      const resColors = await getColors();
+      const resSizes = await getSizes();
       setColors(resColors)
       setSizes(resSizes)
     }
     getColorsSizes()
-  },[])
+  }, [])
 
   return (
     <AppContext.Provider
