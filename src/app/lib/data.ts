@@ -1,17 +1,23 @@
 
-const fetchApiData = async (url) => {
-    const options = {
-      method: "GET",
-      headers: new Headers(),
-    };
+const fetchApiData = async (url, method = "GET", body = null) => {
+  const options = {
+    method: method,
+    headers: new Headers({
+      "Content-type": "application/json",
+    }),
+    mode: "cors",
+    body: body ? JSON.stringify(body) : null,
+  };
     try {
+      console.log(body, method)
       const response = await fetch(url, options);
-      if (response.status === 200) {
-        const payload = await response.json();
-        return payload;
+      if (!response.ok) {
+        return Promise.reject(response.status);
       }
-      return Promise.reject(response.status);
+      const payload = await response.json();
+      return payload;
     } catch (error) {
+      return error;
     }
   };
 
@@ -65,4 +71,17 @@ export  async function getSizes () {
   const url = process.env.NEXT_PUBLIC_API_URL +  "sizes/all";
   return fetchApiData(url);
 }
+
+export  async function createEmail (data) {
+  const body = {
+    email : data.email
+  }
+  console.log(body)
+  const url = process.env.NEXT_PUBLIC_API_URL +  "email/create";
+  return fetchApiData(url, "POST", body);
+}
+
+
+
+
 

@@ -8,6 +8,7 @@ export const AppContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [sizeSelectedOption, setSizeSelectedOption] = useState("");
+  const [colorSelectedOption, setColorSelectedOption] = useState("");
   const [searchBarIsOpen, setSearchBarIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [colors, setColors] = useState([]);
@@ -58,7 +59,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ cartItems, addItemToCart, removeItemFromCart, addQuantity, sizeSelectedOption, setSizeSelectedOption, removeQuantity, searchBarIsOpen, setSearchBarIsOpen, searchTerm, setSearchTerm, colors, sizes }}
+      value={{ cartItems, addItemToCart, removeItemFromCart, addQuantity, sizeSelectedOption, setSizeSelectedOption, removeQuantity, searchBarIsOpen, setSearchBarIsOpen, searchTerm, setSearchTerm, colors, sizes, colorSelectedOption, setColorSelectedOption }}
     >
       {children}
     </AppContext.Provider>
