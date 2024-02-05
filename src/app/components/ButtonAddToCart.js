@@ -62,7 +62,7 @@ export default function ButtonAddToCart({ item }) {
 
   const handleAddItemToCard = () => {
     if (colorSelectedOption && sizeSelectedOption) {
-      addItemToCart(item, sizeSelectedOption);
+      addItemToCart(item, sizeSelectedOption, colorSelectedOption);
       showToastMessage("success");
     } else {
       showToastMessage("error");

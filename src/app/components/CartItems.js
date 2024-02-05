@@ -10,26 +10,32 @@ import Link from "next/link";
 export default function CartItems() {
   const { cartItems, removeItemFromCart, handlePlus } = useContext(AppContext);
 
-  
+  console.log(cartItems)
+
+
   return (
     <div className="flex flex-col w-full lg:mx-10   ">
       {cartItems && cartItems.length !== 0 ? (
         cartItems?.map((item) => (
           <div key={item.id + item.size.id + item.price} className="flex  border-t border-[#DAC895]  h-auto">
             <div className="hidden sm:flex w-1/12 lg:w-2/12 my-auto ">
-              <Image src={item.images[0].url} alt="imagen" width={80} height={100} className="py-2"/>
+              <Image src={item.images[0].url} alt="imagen" width={80} height={100} className="py-2" />
             </div>
-            <div className="flex my-auto flex-1">
+            <div className="flex my-auto flex-1 justify-evenly">
               <div className="flex flex-col ml-4 text-base lg:text-lg w-2/6 font-medium my-auto">
                 <span className="">{item.name}</span>
                 <span className="mt-2">{item.price} €</span>
               </div>
-              <div className="flex flex-col ml-4 text-base lg:text-lg  font-medium my-auto text-center">
-                <span className="">Talla</span>
-                <span className="mt-2">{item.size.name}</span>
+              <div className="flex px-3 flex-col ml-4 text-base lg:text-lg  font-medium my-auto text-center">
+                <div className="w-5 h-5 border-2 border-[#929292] rounded-full my-auto" style={{ background: item.color.color }}></div>
+              </div>
+              <div className="flex px-3 flex-col ml-4 text-base lg:text-lg  font-medium my-auto text-center">
+                <div className="flex  border w-8 h-8  font-normal cursor-pointer "   >
+                  <span className="mx-auto my-auto text-base">{item?.size.name}</span>
+                </div>
               </div>
               <div className="flex mx-auto flex-1 my-auto">
-              <QuantitySelector item={item} handlePlus={handlePlus} />
+                <QuantitySelector item={item} handlePlus={handlePlus} />
               </div>
               <span className="font-bold text-base lg:text-lg mr-4 my-auto">{item.price * item.quantity} €</span>
               <div

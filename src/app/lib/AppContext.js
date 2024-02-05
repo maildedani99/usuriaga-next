@@ -16,18 +16,22 @@ export const CartProvider = ({ children }) => {
 
 
 
-  const addItemToCart = (item, sizeSelectedOption) => {
-    const matchSizeIndex = cartItems.findIndex(
-      (object) => object.id === item.id && object.size.id === sizeSelectedOption.id
+  const addItemToCart = (item, sizeSelectedOption, colorSelectedOption) => {
+    const matchItemIndex = cartItems.findIndex(
+      (object) => object.id === item.id && object.size.id === sizeSelectedOption.id && object.color === colorSelectedOption
     );
-    if (matchSizeIndex !== -1) {
-      cartItems[matchSizeIndex].quantity += 1;
-      setCartItems(cartItems)
+  
+    if (matchItemIndex !== -1) {
+      // Si ya existe el mismo producto con la misma talla y color, incrementa la cantidad.
+      cartItems[matchItemIndex].quantity += 1;
+      setCartItems([...cartItems]); // Asegúrate de utilizar una copia actualizada.
     } else {
-      const quantityItem = { ...item, quantity: 1, size: sizeSelectedOption }
-      setCartItems([...cartItems, quantityItem]);
+      // Si no existe, crea un nuevo elemento en el carrito.
+      const newItem = { ...item, quantity: 1, size: sizeSelectedOption, color: colorSelectedOption };
+      setCartItems([...cartItems, newItem]);
     }
   };
+  
 
   const addQuantity = (item) => {
     const resItemMatch = cartItems.find(object => object.id === item.id & object.size.id === item.size.id);
