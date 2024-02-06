@@ -18,9 +18,9 @@ export default function ShoppingList() {
     <div className="flex flex-col flex-1  mx-10 h-auto  ">
       {cartItems &&
         cartItems?.length !== 0 &&
-        cartItems?.map((item) => (
+        cartItems?.map((item, index) => (
           <div
-            key={item.id + item.size.id + item.price}
+            key={index}
             className="flex w-full border-t border-[#DAC895]  h-auto"
           >
             <div className="hidden sm:flex w-2/12 my-auto ">
@@ -36,6 +36,10 @@ export default function ShoppingList() {
                 <span className="flex w-2/6">{item.name}</span>
                 <span className="flex flex-1 mx-auto">{item.price} €</span>
                 <span className="flex flex-1 mx-auto">{item.size.name}</span>
+                <div className="flex flex-1">
+                <div className="w-3 h-3 border-2 border-[#929292] rounded-full my-auto" style={{ background: item.color.color }}></div>
+                </div>
+                
                 <span className="flex flex-1 mx-auto">{item.quantity}</span>
                 <span className="font-bold flex flex-1 justify-end">
                   {item.price * item.quantity} €

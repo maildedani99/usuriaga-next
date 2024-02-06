@@ -16,8 +16,8 @@ export default function CartItems() {
   return (
     <div className="flex flex-col w-full lg:mx-10   ">
       {cartItems && cartItems.length !== 0 ? (
-        cartItems?.map((item) => (
-          <div key={item.id + item.size.id + item.price} className="flex  border-t border-[#DAC895]  h-auto">
+        cartItems?.map((item, index) => (
+          <div key={index} className="flex  border-t border-[#DAC895]  h-auto">
             <div className="hidden sm:flex w-1/12 lg:w-2/12 my-auto ">
               <Image src={item.images[0].url} alt="imagen" width={80} height={100} className="py-2" />
             </div>
