@@ -3,6 +3,7 @@ import { useState } from "react";
 import InputForm from "../../components/InputText";
 import ShoppingList from "../../components/ShoppingList";
 import Link from "next/link";
+import FinalizeButton from "../../components/FinalizeButton";
 
 export default function PayForm() {
 
@@ -52,7 +53,7 @@ export default function PayForm() {
         </div>
 
       </div>
-      <input defaultValue="Finalizar compra" className=" flex flex-1 w-4/12 mx-auto p-4 text-xl text-white text-center mb-8 capitalize cursor-pointer bg-primary" />
+      <FinalizeButton />
     </div>
   );
 }

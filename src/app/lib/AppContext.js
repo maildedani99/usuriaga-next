@@ -47,9 +47,17 @@ export const CartProvider = ({ children }) => {
   }
 
   const removeItemFromCart = (item) => {
-    const updatedCartItems = cartItems.filter((cartItem) => cartItem.id !== item.id || cartItem.size.id !== item.size.id);
+    const updatedCartItems = cartItems.filter((cartItem) => {
+      return (
+        cartItem.id !== item.id ||
+        cartItem.size.id !== item.size.id ||
+        cartItem.color !== item.color
+      );
+    });
+  
     setCartItems(updatedCartItems);
   };
+  
 
   useEffect(() => {
     const getColorsSizes = async () => {

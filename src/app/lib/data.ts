@@ -7,6 +7,7 @@ const fetchApiData = async (url, method = "GET", body = null) => {
     }),
     mode: "cors",
     body: body ? JSON.stringify(body) : null,
+    redirect: 'follow', 
   };
     try {
       console.log(body, method)
