@@ -13,6 +13,12 @@ export const CartProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [colors, setColors] = useState([]);
   const [sizes, setSizes] = useState([]);
+  const [formData, setFormData] = useState({});
+  const [order, setOrder] = useState({ orderAmount: 0});
+  const [redsysData, setRedsysData] = useState({});
+  const [orderItems, setOrderItems] = useState([])
+
+  
 
 
 
@@ -71,7 +77,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ cartItems, addItemToCart, removeItemFromCart, addQuantity, sizeSelectedOption, setSizeSelectedOption, removeQuantity, searchBarIsOpen, setSearchBarIsOpen, searchTerm, setSearchTerm, colors, sizes, colorSelectedOption, setColorSelectedOption }}
+      value={{ cartItems, addItemToCart, removeItemFromCart, addQuantity, sizeSelectedOption, setSizeSelectedOption, removeQuantity, searchBarIsOpen, setSearchBarIsOpen, searchTerm, setSearchTerm, colors, sizes, colorSelectedOption, setColorSelectedOption, formData, setFormData, order, setOrder, redsysData, setRedsysData, orderItems, setOrderItems }}
     >
       {children}
     </AppContext.Provider>

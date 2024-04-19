@@ -10,8 +10,6 @@ import Link from "next/link";
 export default function CartItems() {
   const { cartItems, removeItemFromCart, handlePlus } = useContext(AppContext);
 
-  console.log(cartItems)
-
 
   return (
     <div className="flex flex-col w-full lg:mx-10   ">

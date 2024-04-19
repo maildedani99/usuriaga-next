@@ -5,9 +5,8 @@ import Link from "next/link";
 
 export default function SummaryCart(props) {
 
-  const { cartItems } = useContext(AppContext);
-
-  const [subtotal, setSubtotal] = useState(0);
+  const { cartItems, order, setOrder } = useContext(AppContext);
+  
 
   const totalPrice =
     cartItems &&
@@ -19,15 +18,18 @@ export default function SummaryCart(props) {
   const envio = totalPrice >= 80 ? 0 : 3.90;
 
 
-  const getPaymentData = () => {
+  /* const getPaymentData = () => {
     const amount = cartItems?.map(item => item.price * item.quantity).reduce((a, b) => a + b, 0);
-    setSubtotal(amount);
+    setOrder({
+      amount:amount
+    })
   }
 
   useEffect(() => {
     getPaymentData();
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cartItems]);
+  }, [cartItems]); */
 
 
 
@@ -65,7 +67,8 @@ export default function SummaryCart(props) {
           </div>
           <div className="flex w-5/6 p-8 mx-auto mt-16">
             <Link
-              href={cartItems.length > 0 ? "/payForm" : "#"}
+            href="/payForm"
+              //href={cartItems.length > 0 ? "/payForm" : "#"}
               className={`flex flex-1 p-4 text-xl text-white text-center mb-8  cursor-pointer bg-primary ${cartItems.length === 0 && ' cursor-default opacity-50'}`}
             >
               <span className="mx-auto uppercase">

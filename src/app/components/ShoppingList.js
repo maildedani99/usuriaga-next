@@ -1,9 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../lib/AppContext";
 import Image from "next/image";
 
 export default function ShoppingList() {
-  const { cartItems } = useContext(AppContext);
+  
+  const { cartItems, order, setOrder } = useContext(AppContext);
 
   const totalPrice =
     cartItems &&
@@ -13,6 +14,17 @@ export default function ShoppingList() {
     }, 0);
 
   const envio = totalPrice >= 80 ? 0 : 3.9;
+
+  useEffect(()=> {
+    setOrder(prevOrder => ({
+      ...prevOrder, 
+      orderAmount: totalPrice + envio,
+    }));
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+     },[totalPrice])
+
+  console.log(order);
+
 
   return (
     <div className="flex flex-col flex-1  mx-10 h-auto  ">

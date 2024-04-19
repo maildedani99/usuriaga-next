@@ -7,7 +7,6 @@ export default function SubscriptionForm () {
 
     const hadleClickSubcribe  = async () => {
         const resCreateEamil = await createEmail(data);
-        console.log(resCreateEamil);
     }
 
     const [data, setData] = useState({})
@@ -17,7 +16,6 @@ export default function SubscriptionForm () {
             ...data,
             [e.target.name]: e.target.value,
           });
-            console.log(data)
     }
 
     return (

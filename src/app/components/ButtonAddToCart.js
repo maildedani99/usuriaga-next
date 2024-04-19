@@ -81,7 +81,6 @@ export default function ButtonAddToCart({ item }) {
   }, [colorSelectedOption])
 
 
-  console.log(itemWithDetails, colorSelectedOption)
 
   return (
     <div className="flex flex-1 flex-col w-full mt-8 text-lg font-medium ">
@@ -101,10 +100,10 @@ export default function ButtonAddToCart({ item }) {
       </div>
       Tallas
       {colorSelectedOption &&
-        itemWithDetails.colors?.map((e, index) => {
+        itemWithDetails.colors?.map((e) => {
           if (colorSelectedOption?.id === e.color?.id) {
             return (
-              <div key={index} className="flex w-full flex-row">
+              <div key={e.color.id} className="flex w-full flex-row">
                 {e.sizes?.map((size, index) => (
                   <div key={index} onClick={() => setSizeSelectedOption(size)} className={`flex border w-8 h-8 mr-3  mt-2 font-normal cursor-pointer ${sizeSelectedOption && sizeSelectedOption.id === size.id ? "bg-primary" : ""} `}   >
                     <span className="mx-auto my-auto text-base">{size?.name}</span>

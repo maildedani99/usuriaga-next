@@ -22,8 +22,6 @@ export default function Searcher({ products }) {
     useEffect(() => {
         const resFiltered = searchByName(products, searchTerm);
         setFilteredProducts(resFiltered)
-        console.log(resFiltered);
-
     }, [searchTerm])
 
     return (

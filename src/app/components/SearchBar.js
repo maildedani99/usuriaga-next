@@ -18,7 +18,6 @@ export default function SearchBar() {
 
     const handleChangeInputSearch = (value) => {
         setSearchTerm(value)
-        console.log(value)
     }
 
 

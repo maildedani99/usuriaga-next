@@ -10,12 +10,14 @@ const fetchApiData = async (url, method = "GET", body = null) => {
     redirect: 'follow', 
   };
     try {
-      console.log(body, method)
+      //console.log(body, method)
       const response = await fetch(url, options);
       if (!response.ok) {
+        console.log(response.status)
         return Promise.reject(response.status);
       }
       const payload = await response.json();
+      console.log(payload)
       return payload;
     } catch (error) {
       return error;
@@ -77,10 +79,32 @@ export  async function createEmail (data) {
   const body = {
     email : data.email
   }
-  console.log(body)
   const url = process.env.NEXT_PUBLIC_API_URL +  "email/create";
   return fetchApiData(url, "POST", body);
 }
+
+export  async function getRedsysData (redsysData) {
+  const body = {
+    amount: redsysData.total.toFixed(2),
+    order: redsysData.ds_order
+  }
+  console.log('body en fetch: ',body)
+  
+  const url = process.env.NEXT_PUBLIC_API_URL +  "redsys/generate-signature";
+  return fetchApiData(url, "POST", body);
+}
+export  async function completeOrderProcess (formData, orderItems, order) {
+  console.log(orderItems)
+   const body = {
+    customer: formData,
+      order: order,
+      items: orderItems
+    }
+    const url = process.env.NEXT_PUBLIC_API_URL +  "orders/completeOrderProcess";
+  return fetchApiData(url, "POST",body);
+}
+
+
 
 
 
