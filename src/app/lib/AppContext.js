@@ -28,11 +28,9 @@ export const CartProvider = ({ children }) => {
     );
   
     if (matchItemIndex !== -1) {
-      // Si ya existe el mismo producto con la misma talla y color, incrementa la cantidad.
       cartItems[matchItemIndex].quantity += 1;
-      setCartItems([...cartItems]); // Asegúrate de utilizar una copia actualizada.
+      setCartItems([...cartItems]);
     } else {
-      // Si no existe, crea un nuevo elemento en el carrito.
       const newItem = { ...item, quantity: 1, size: sizeSelectedOption, color: colorSelectedOption };
       setCartItems([...cartItems, newItem]);
     }

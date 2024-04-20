@@ -1,11 +1,11 @@
 "use client"
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AppContext } from "../lib/AppContext";
 import Link from "next/link";
 
 export default function SummaryCart(props) {
 
-  const { cartItems, order, setOrder } = useContext(AppContext);
+  const { cartItems } = useContext(AppContext);
   
 
   const totalPrice =
@@ -16,20 +16,6 @@ export default function SummaryCart(props) {
     }, 0);
 
   const envio = totalPrice >= 80 ? 0 : 3.90;
-
-
-  /* const getPaymentData = () => {
-    const amount = cartItems?.map(item => item.price * item.quantity).reduce((a, b) => a + b, 0);
-    setOrder({
-      amount:amount
-    })
-  }
-
-  useEffect(() => {
-    getPaymentData();
-    
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cartItems]); */
 
 
 

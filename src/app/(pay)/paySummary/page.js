@@ -3,30 +3,35 @@
 import { useContext, useEffect } from "react";
 import ShoppingList from "../../components/ShoppingList";
 import { AppContext } from "../../lib/AppContext";
-import { completeOrderProcess } from "../../lib/data";
+import { useRouter } from 'next/navigation'
 import FinalizeButton from "../../components/FinalizeButton";
 
 export default function PaySummary() {
 
-  const { formData, order, cartItems, orderItems, setOrderItems, redsysData, setRedsysData } = useContext(AppContext);
+  const router = useRouter()
+
+  const { formData, cartItems, setOrderItems } = useContext(AppContext);
 
   const itemsOrderCreate = (cartItems) => {
     let items = [];
     cartItems.forEach(item => {
       let newItem = {
-        "product_id": item.id, // Utilizar el ID del elemento como product_id
-        "size_id": item.size.id, // Utilizar el ID del tamaño del elemento como size_id
-        "color_id": item.color.id, // Utilizar el ID del color del elemento como color_id
-        "quantity": item.quantity, // Utilizar la cantidad del elemento
-        "price": item.price // Utilizar el precio del elemento
+        "product_id": item.id, 
+        "size_id": item.size.id,
+        "color_id": item.color.id,
+        "quantity": item.quantity,
+        "price": item.price 
       };
       items.push(newItem);
     });
     setOrderItems(items);
   }
-
+  
   useEffect(()=> {
-    itemsOrderCreate(cartItems)
+    if (!cartItems || cartItems.length === 0) {
+      router.push('/')
+    } else itemsOrderCreate(cartItems)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   return (

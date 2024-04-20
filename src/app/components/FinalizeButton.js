@@ -12,12 +12,8 @@ export default function FinalizeButton() {
   
 
     const onGetRedsysData = async () => {
-      
-    console.log('dataFetchRedsys el finalizebutton',dataFetchRedsys)
-        // Llamar a la función getRedsysData con el nuevo objeto modificado
         const data = await getRedsysData(dataFetchRedsys);
         setRedsysData(data)
-        console.log(data);
         return data;
     }
     
@@ -27,6 +23,7 @@ export default function FinalizeButton() {
         if (redsysData) {
              onGetRedsysData();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -34,8 +31,8 @@ export default function FinalizeButton() {
       
         <form name="form" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
             <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />
-            <input type="hidden" name="Ds_MerchantParameters" value={redsysData.jsonData}/>
-            <input type="hidden" name="Ds_Signature" value={redsysData.signature}/>
+            <input type="hidden" name="Ds_MerchantParameters" defaultValue="" value={redsysData.jsonData}/>
+            <input type="hidden" name="Ds_Signature" defaultValue="" value={redsysData.signature}/>
             <button type="submit">Realizar Pago</button>
         </form>
     );

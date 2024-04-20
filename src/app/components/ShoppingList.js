@@ -23,7 +23,6 @@ export default function ShoppingList() {
      // eslint-disable-next-line react-hooks/exhaustive-deps
      },[totalPrice])
 
-  console.log(order);
 
 
   return (

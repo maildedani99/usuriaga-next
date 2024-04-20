@@ -1,4 +1,3 @@
-import ProductCard from "../../../components/ProductCard";
 import ProductsView from "../../../components/ProductsView";
 import { getOutletProducts } from "../../../lib/data";
 

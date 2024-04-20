@@ -1,5 +1,4 @@
 import ProductsView from "../../../components/ProductsView";
-import ProductCard from "../../../components/ProductCard"
 import { getProductsBySubcategory, getSubcategory } from "../../../lib/data"
 
 

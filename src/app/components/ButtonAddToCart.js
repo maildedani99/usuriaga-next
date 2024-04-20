@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../lib/AppContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -86,10 +86,10 @@ export default function ButtonAddToCart({ item }) {
     <div className="flex flex-1 flex-col w-full mt-8 text-lg font-medium ">
       Colores
       <div className="flex mt-2 mb-4">
-        {itemWithDetails && itemWithDetails.colors?.map((e) => {
+        {itemWithDetails && itemWithDetails.colors?.map((e, index) => {
           return (
             <div
-              key={e.id}
+              key={index}
               onClick={() => setColorSelectedOption(e.color)}
               className={`w-5 h-5 border-2 border-[#929292] rounded-full inline-block mr-2 cursor-pointer ${colorSelectedOption && e.color?.id === colorSelectedOption?.id ? "border-black" : "border-[#929292]"
                 }`}

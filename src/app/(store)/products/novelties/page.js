@@ -1,4 +1,3 @@
-import ProductCard from "../../../components/ProductCard";
 import ProductsView from "../../../components/ProductsView";
 import { getNovelties } from "../../../lib/data";
 

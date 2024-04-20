@@ -1,20 +1,21 @@
 "use client"
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import InputForm from "../../components/InputText";
 import ShoppingList from "../../components/ShoppingList";
 import Link from "next/link";
 import { AppContext } from "../../lib/AppContext";
 import { completeOrderProcess } from "../../lib/data";
+import { useRouter } from "next/navigation";
 
 export default function PayForm() {
 
+  const router = useRouter()
 
-  const { formData, setFormData,   orderItems, order, setOrder, setRedsysData } = useContext(AppContext);
+  const { formData, setFormData,   orderItems, order, cartItems, setRedsysData } = useContext(AppContext);
 
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [requestedInvoice, setRequestedInvoice] = useState(false);
   const [validated, setValidated] = useState(false);
-  
 
   const handleInputChange = (event) => {
     setFormData({
@@ -58,11 +59,15 @@ export default function PayForm() {
 
   const handleConfirm  = async () => {
     const resPayment = await completeOrderProcess(formData, orderItems, order);
-    console.log(resPayment)
     resPayment && setRedsysData(resPayment.order)
   }
 
-
+  useEffect(()=> {
+    if (!cartItems || cartItems.length === 0) {
+      router.push('/')
+    } 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   return (
     <div className="  flex flex-col container mx-auto mt-32 py-10 px-4 lg:px-0 justify-center w-full tracking-wider  font-light	 text-center">

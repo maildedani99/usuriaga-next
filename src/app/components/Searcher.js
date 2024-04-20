@@ -22,6 +22,7 @@ export default function Searcher({ products }) {
     useEffect(() => {
         const resFiltered = searchByName(products, searchTerm);
         setFilteredProducts(resFiltered)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchTerm])
 
     return (
