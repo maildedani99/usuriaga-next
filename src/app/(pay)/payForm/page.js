@@ -32,6 +32,34 @@ export default function PayForm() {
     setAcceptedTerms(!acceptedTerms)
   }
 
+  const excludedPostalCodes = [
+    // Códigos postales de las Islas Canarias
+    '35', '38',
+    // Códigos postales de las Islas Baleares
+    '07', '17', '07',
+    // Códigos postales de Ceuta
+    '51',
+    // Códigos postales de Melilla
+    '52'
+  ];
+  
+  const isPeninsulaPostalCode = (postalCode) => {
+    // Verificar si el código postal tiene exactamente 5 dígitos
+    if (postalCode.length !== 5 || isNaN(postalCode)) {
+      return false;
+    }
+    
+    // Verificar si el código postal no está en la lista de excluidos
+    for (let excludedCode of excludedPostalCodes) {
+      if (postalCode.startsWith(excludedCode)) {
+        return false;
+      }
+    }
+    
+    // Si el código postal cumple con los criterios anteriores, se considera de la península
+    return true;
+  };
+
   const allRequiredFieldsCompleted = () => {
     const alwaysRequired = ['first_name', 'last_name', 'address', 'province', 'city', 'postal_code', 'phone', 'email'];
     for (let field of alwaysRequired) {

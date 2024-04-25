@@ -22,7 +22,7 @@ export default function CartItems() {
             <div className="flex my-auto flex-1 justify-evenly">
               <div className="flex flex-col ml-4 text-base lg:text-lg w-2/6 font-medium my-auto">
                 <span className="">{item.name}</span>
-                <span className="mt-2">{item.price} €</span>
+                <span className="mt-2">{item.price.toString().replace('.', ',')} €</span>
               </div>
               <div className="flex px-3 flex-col ml-4 text-base lg:text-lg  font-medium my-auto text-center">
                 <div className="w-5 h-5 border-2 border-[#929292] rounded-full my-auto" style={{ background: item.color.color }}></div>

@@ -19,14 +19,14 @@ export default function ProductCard({ product }) {
       {product.discount == true && product.reduced_price !== 0 ? (
         <div className="flex flex-row flex-1 w-full mx-auto ml-1 justify-center  ">
           <span className=" text-base	mt-2 line-through  mr-1">
-            {product.price}€{" "}
+          {product.price.toString().replace('.', ',')}€{" "}
           </span>
           <span className=" text-base	  mt-2 text-red-600 ml-1">
-            {product.reduced_price}€
+            {product.reduced_price.toString().replace('.', ',')}€
           </span>
         </div>
       ) : (
-        <span className=" text-base	 mx-auto mt-2 ">{product.price}€</span>
+        <span className=" text-base	 mx-auto mt-2 ">{product.price.toString().replace('.', ',')}€</span>
       )}
 
     </Link>

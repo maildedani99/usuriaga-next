@@ -17,7 +17,7 @@ export default function ProductViewCard({ product }) {
           <div className="text-2xl flex flex-col my-auto w-full	lg:w-2/6   ">
             <div className="flex flex-col  text-justify  	w-6/6 ">
               <span className="text-3xl font-medium ">{product.name}</span>
-              <span className="text-lg font-medium mt-4">{product.price}€</span>
+              <span className="text-lg font-medium mt-4">{product.price.toString().replace('.', ',')}€</span>
               <span className="   font-body text-base tracking-wider	font-light	  	mt-4">
                 {product.description}
               </span>
