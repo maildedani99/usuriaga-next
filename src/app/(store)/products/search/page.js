@@ -1,10 +1,10 @@
 import ProductsView from "../../../components/ProductsView";
 import Searcher from "../../../components/Searcher";
-import { getProducts } from "../../../lib/data";
+import { getProductsStock } from "../../../lib/data";
 
 export default async function Search () {
 
-    const products = await getProducts();
+    const products = await getProductsStock();
     
 
     return (

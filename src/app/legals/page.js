@@ -18,9 +18,7 @@ export default function Legals() {
         los mismos para realizar comunicaciones periódicas, incluyendo las que
         se realicen vía correo electrónico, que Usuriaga Collection llevará a
         cabo. Usuriaga Collection le informa de su derecho de acceso,
-        rectificación, oposición y cancelación de estos datos mediante carta
-        dirigida a Usuriaga Collection: C/ Pare Manyanet 33, 3º 4ª, 08030
-        Barcelona.{" "}
+        rectificación, oposición y cancelación de estos datos mediante correo electrónico a info@usuriaga.com.{" "}
       </p>
       <h3 className="text-3xl mt-14">Nota Legal</h3>
       <p className="text-justify mt-5">
@@ -28,8 +26,8 @@ export default function Legals() {
         la Ley 34/2002, del 11 de julio, de Servicios de la Sociedad de la
         Información y de Comercio Electrónico (LSSI-CE), a través de este Aviso
         Legal se informa a los usuarios que el titular de este sitio Web es
-        Lidia Medina Valiente con DNI/NIF 47908158D (contacto@usuriaga.com) con
-        domicilio social en C/ Pare Manyanet 33, 3º 4ª, 08030 Barcelona.
+        Lidia Medina Valiente con DNI/NIF 47908158D (info@usuriaga.com) con
+        domicilio social en el código postal 08030 de Barcelona.
       </p>
       <h3 className="text-3xl mt-14">
         Compromiso de confidencialidad y protección de datos

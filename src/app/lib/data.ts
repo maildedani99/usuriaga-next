@@ -62,6 +62,11 @@ export  async function getProductsBySubcategory (id) {
     return fetchApiData(url);
   };
 
+  export  async function getProductsStock () {
+    const url = process.env.NEXT_PUBLIC_API_URL + "products/allStock";
+    return fetchApiData(url);
+  };
+
   export  async function getColors () {
     const url = process.env.NEXT_PUBLIC_API_URL +  "colors/all";
     return fetchApiData(url);

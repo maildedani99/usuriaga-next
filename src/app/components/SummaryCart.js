@@ -15,7 +15,7 @@ export default function SummaryCart(props) {
       return total + itemTotal;
     }, 0);
 
-  const envio = totalPrice >= 80 ? 0 : 3.90;
+  const envio = totalPrice >= 60 ? 0 : 3.90;
 
 
 

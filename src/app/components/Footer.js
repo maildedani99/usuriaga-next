@@ -21,7 +21,7 @@ export default function Footer() {
             <h3 className="text-xl font-medium mx-auto">Información legal</h3>
             <div className="flex flex-col mx-auto text-md">
             <Link className="mx-auto mt-3" href="/terms">
-              - Ternimos y condiciones
+              - Términos y condiciones
             </Link>
             <Link className="mx-auto mt-2" href="/legals">
               - Aviso Legal y Privacidad
@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col w-4/12 text-center  px-10">
-            <h3 className="text-xl font-medium">Contactanos</h3>
+            <h3 className="text-xl font-medium">Contáctanos</h3>
           <div className="mx-auto text-md">
             <div className="flex mt-3">
               <SiInstagram size={iconSize} className="my-auto " />
@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
             <div className="flex mt-2">
               <BsTelephone size={iconSize} className="my-auto " />
-              <span className="my-auto ml-3 ">666 666 666</span>
+              <span className="my-auto ml-3 ">613 488 326</span>
             </div>
             <div className="flex mt-2">
               <FiMail size={iconSize} className="my-auto " />
@@ -46,7 +46,7 @@ export default function Footer() {
             </div>{" "}
             <div className="flex mt-2 ">
               <BsWhatsapp size={iconSize} className="my-auto " />
-              <span className="my-auto ml-3 ">666 666 666</span>
+              <span className="my-auto ml-3 ">613 488 326</span>
             </div>
           </div>
 

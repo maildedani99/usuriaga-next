@@ -131,7 +131,7 @@ export default function PayForm() {
           </div>
           <div className="flex mt-6">
             <input type="checkbox" name="terms" onChange={handleCheckboxAceptedTerms} id="" className="my-auto h-5 w-5 text-secondary focus:ring-primary  focus:outline-primary accent-primary rounded  " />
-            <label className="my-auto ml-4"> He leído y estoy de acuerdo con los <Link href="/terms" className="text-primary underline font-medium" > términos y condiciones</Link> de la web. *{validated && !acceptedTerms && <span className='ml-4 text-md	 text-red-600 '><br></br>  Debes aceptar los terminos y condiciones.</span>}</label>
+            <label className="my-auto ml-4"> He leído y estoy de acuerdo con los <Link href="/terms" className="text-primary underline font-medium" > términos y condiciones</Link> de la web. *{validated && !acceptedTerms && <span className='ml-4 text-md	 text-red-600 '><br></br>  Debes aceptar los términos y condiciones.</span>}</label>
           </div>
           <div className="flex mt-6">
             <input type="checkbox" name="terms" onChange={handleCheckboxRequestedInvoice} id="" className="my-auto h-5 w-5 text-secondary focus:ring-primary  focus:outline-primary accent-primary rounded  " />

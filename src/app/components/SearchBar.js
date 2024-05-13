@@ -29,7 +29,7 @@ export default function SearchBar() {
                     <input
                         type="text"
                         className=" mx-auto w-[50vw] ml-4 text-xl  my-auto   outline-none"
-                        placeholder="Busca aqui tu producto..."
+                        placeholder="Busca aquí tu producto..."
                         onChange={(e)=>handleChangeInputSearch(e.target.value)}
                     />
                     <MdClose size={30} className="my-auto cursor-pointer" color="#929292" onClick={handleClickCloseButton} />

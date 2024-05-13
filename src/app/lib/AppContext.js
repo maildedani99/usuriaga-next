@@ -79,5 +79,5 @@ export const CartProvider = ({ children }) => {
     >
       {children}
     </AppContext.Provider>
-  );
+  );  
 };
