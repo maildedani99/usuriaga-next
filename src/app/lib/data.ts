@@ -1,11 +1,13 @@
 
 const fetchApiData = async (url, method = "GET", body = null) => {
-  const options = {
+  const options : RequestInit = {
     method: method,
     headers: new Headers({
       "Content-type": "application/json",
     }),
+    mode: 'cors',
     body: body ? JSON.stringify(body) : null,
+    redirect: 'follow', 
   };
     try {
       const response = await fetch(url, options);
