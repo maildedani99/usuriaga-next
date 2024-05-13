@@ -1,23 +1,26 @@
 
-const fetchApiData = async (url, method = "GET", body = null) => {
-  const options : RequestInit = {
+cconst fetchApiData = async (url: string, method: string = "GET", body: any = null) => {
+  const options: RequestInit = {
     method: method,
     headers: new Headers({
-      "Content-type": "application/json",
+      "Content-Type": "application/json"
     }),
     body: body ? JSON.stringify(body) : null,
+    mode: 'cors', // Solo si necesitas especificar el modo, descomenta y usa un valor válido
+    // redirect: 'follow', // Solo si necesitas especificar la política de redirección
   };
-    try {
-      const response = await fetch(url, options);
-      if (!response.ok) {
-        return Promise.reject(response.status);
-      }
-      const payload = await response.json();
-      return payload;
-    } catch (error) {
-      return error;
+
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      return Promise.reject(response.status);
     }
-  };
+    const payload = await response.json();
+    return payload;
+  } catch (error) {
+    return error;
+  }
+};
 
 export  async function getCategories () {
     const url = process.env.NEXT_PUBLIC_API_URL +  "categories/all";
