@@ -1,5 +1,5 @@
 
-cconst fetchApiData = async (url: string, method: string = "GET", body: any = null) => {
+const fetchApiData = async (url: string, method: string = "GET", body: any = null) => {
   const options: RequestInit = {
     method: method,
     headers: new Headers({
