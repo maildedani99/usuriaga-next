@@ -138,12 +138,12 @@ export default function PayForm() {
             <label className="my-auto ml-4">Quiero recibir factura por correo electrónico.</label>
           </div>
         </div>
-        <div className="flex flex-1 w-full lg:mt-28 mt-16">
+        {/* <div className="flex flex-1 w-full lg:mt-28 mt-16">
           <ShoppingList />
-        </div>
+        </div> */}
 
       </div>
-      <Link href={"/paySummary"} legacyBehavior>
+      {/* <Link href={"/paySummary"} legacyBehavior>
         <a
           onClick={handleLinkClick}
           className="flex w-1/3 mx-auto p-4 text-xl text-white text-center mb-8 cursor-pointer bg-primary"
@@ -152,7 +152,7 @@ export default function PayForm() {
             Finalizar compra
           </span>
         </a>
-      </Link>
+      </Link> */}
       {/* <RedsysPaymentForm /> */}
     </div>
   );
