@@ -6,16 +6,19 @@ const fetchApiData = async (url, method = "GET", body = null) => {
       "Content-type": "application/json",
     }),
     mode: 'cors',
-    body: body ? JSON.stringify(body) : null,
     redirect: 'follow', 
   };
+
+  if (body) {
+    options.body = JSON.stringify(body);
+  }
     try {
       const response = await fetch(url, options);
       if (!response.ok) {
         return Promise.reject(response.status);
       }
       const payload = await response.json();
-      return JSON.stringify(payload);
+      return payload;
     } catch (error) {
       console.error('Error fetching: ', error);
     return [];
