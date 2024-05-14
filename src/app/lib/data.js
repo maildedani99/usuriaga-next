@@ -15,7 +15,7 @@ const fetchApiData = async (url, method = "GET", body = null) => {
         return Promise.reject(response.status);
       }
       const payload = await response.json();
-      return payload;
+      return JSON.parse(JSON.stringify(payload));;
     } catch (error) {
       console.error('Error fetching: ', error);
     return [];
