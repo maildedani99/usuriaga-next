@@ -17,6 +17,8 @@ import NavbarLinksDesktop from "./NavbarLinksDesktop";
 export default async function Navbar() {
   const categories = await getCategories();
 
+  const categoriesPlain = JSON.parse(JSON.stringify(categories))
+
   return (
     <>
       <div className="hidden lg:flex w-full fixed flex-col bg-white top-0 z-10	">
@@ -41,7 +43,7 @@ export default async function Navbar() {
             />
           </Link>
 
-          <NavbarLinksDesktop categories={categories} />
+          <NavbarLinksDesktop categories={categoriesPlain ? categoriesPlain : []} />
           <div className="flex  	py-10 px-6 justify-evenly w-2/12 max-w-sm opacity-70">
           <SearchButton />
             <CartIcon />
@@ -51,7 +53,7 @@ export default async function Navbar() {
      
       </div>
       <div className="flex lg:hidden w-full fixed flex-col bg-white top-0 z-10	">
-        <NavbarMobile categories={categories} />
+        <NavbarMobile categories={categoriesPlain ? categoriesPlain : []} />
       </div>
     </>
   );
