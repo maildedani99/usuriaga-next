@@ -17,7 +17,8 @@ const fetchApiData = async (url, method = "GET", body = null) => {
       const payload = await response.json();
       return payload;
     } catch (error) {
-      return error;
+      console.error('Error fetching: ', error);
+    return [];
     }
   };
 
