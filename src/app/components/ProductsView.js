@@ -2,7 +2,6 @@ import ProductCard from "./ProductCard";
 
 export default function ProductsView({ products = plainProducts, title }) {
 
-  console.log(products[0].images)
   
   return (
     <>

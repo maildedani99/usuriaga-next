@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { HiLockClosed } from "react-icons/hi2";
 import useProducts from "../lib/utils";
+import { useRouter } from "next/navigation";
 
 export default function ButtonAddToCart({ item }) {
   const {
@@ -17,6 +18,9 @@ export default function ButtonAddToCart({ item }) {
     colors,
     sizes,
   } = useContext(AppContext);
+
+  const router = useRouter();
+
 
   const { getColorById, getSizeById } = useProducts()
 
