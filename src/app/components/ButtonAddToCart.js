@@ -9,6 +9,8 @@ import useProducts from "../lib/utils";
 import { useRouter } from "next/navigation";
 
 export default function ButtonAddToCart({ item }) {
+
+  
   const {
     addItemToCart,
     sizeSelectedOption,
@@ -67,7 +69,7 @@ export default function ButtonAddToCart({ item }) {
   const handleAddItemToCard = () => {
     if (colorSelectedOption && sizeSelectedOption) {
       addItemToCart(item, sizeSelectedOption, colorSelectedOption);
-      showToastMessage("success");
+      router.push(`/alert?messageId=alert_1`)
     } else {
       showToastMessage("error");
     }

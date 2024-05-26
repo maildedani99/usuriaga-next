@@ -1,0 +1,16 @@
+
+  {
+    "alert_1": {
+      "message": "El e-commerce de demostración esta en producción, pronto estará disponoble.",
+      "type": "success"
+    },
+    "alert_2": {
+      "message": "Tu mensaje a sido enviado correctamente, lo antes posible nos pondremos en contacto contigo.",
+      "type": "success"
+    },
+    "alert_3": {
+      "message": "Lo sentimos, tu mensaje no se ha podido enviar correctamente, vuelve a intentarlo o escribenos directamente a info@miboutiqueonline.com.",
+      "type": "error"
+    }
+  }
+  

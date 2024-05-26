@@ -1,38 +1,31 @@
 "use client";
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from "next/navigation";
+import { getMessageById } from "../lib/getMessage";
 
-export default function ModalAlert({ message = "Prueba modal alert" }) {
-
+export default function ModalAlert() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const messageId = searchParams.get("messageId");
+  const { message, type } = getMessageById(messageId);
 
-
+  const textStyle = type === "success" ? "text-primary" : "text-red-800";
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="bg-white rounded-lg shadow-lg my-auto mx-4">
-        <div className="border-b px-4 py-2 flex justify-between items-center">
-          <h3 className="text-lg font-semibold">Prueba modal</h3>
+      <div
+        className={`bg-white rounded-lg shadow-lg my-auto mx-4    max-w-xl w-full `}
+      >
+        <div className={`flex text-center p-6  font-semibold ${textStyle}`}>
+          <p className="text-lg mx-auto">{message}</p>
+        </div>
+        <div className="flex p-4">
           <button
             onClick={() => router.back()}
-            className="text-gray-400 hover:text-gray-600 focus:outline-none"
+            className="flex lg:w-2/6  mx-auto sm:w-3/6 w-4/6 bg-[#517A93]  py-2 rounded-full text-white cursor-pointer hover:bg-secondary border-2 border-secondary "
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <span className="mx-auto font-semibold ">Aceptar</span>
           </button>
         </div>
-        <div className="p-4">{message}</div>
       </div>
     </div>
   );

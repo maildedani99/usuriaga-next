@@ -6,7 +6,7 @@ export default function ProductCard({ product }) {
 
   return (
     <Link
-      href={`/productView/${product.id}`}
+      href={`/product/${product.id}`}
       className="flex flex-col  p-4 justify-start tracking-wider	 text-[#515151]	cursor-pointer mt-8 "
     >
       <div className="relative">
