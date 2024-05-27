@@ -23,15 +23,15 @@ export default function QuantitySelector({ item }) {
 
 
   return (
-    <div className="mx-auto text-slate-500">
-      <div className="flex flex-col-reverse	 sm:flex-row sm:border p-2  sm:px-3 sm:py-2 my-auto">
+    <div className="flex md:w-3/6 w-full mx-auto text-slate-500">
+      <div className="flex w-full	  border p-2  px-3 py-2 my-auto">
         <FiMinus
           size={15}
           color="#636364"
-          className="mt-1.5 cursor-pointer"
+          className="mt-1.5 cursor-pointer "
           onClick={() => handleMinus(item)}
         />
-        <span className="sm:mx-6 select-none text-base mx-auto">{quantity}</span>
+        <span className=" select-none text-base mx-6">{quantity}</span>
         <FiPlus
           size={15}
           color="#636364"

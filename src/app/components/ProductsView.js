@@ -5,7 +5,7 @@ export default function ProductsView({ products = plainProducts, title }) {
   
   return (
     <>
-    <div className="flex text-5xl justify-center w-full tracking-wider capitalize font-light text-[#515151] text-center">
+    <div className="flex text-4xl md:text-5xl justify-center w-full tracking-wider capitalize font-light text-[#515151] text-center">
       <span className="">{title}</span>
     </div>
     {products && products.length > 0 ? (

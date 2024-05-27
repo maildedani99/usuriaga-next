@@ -1,7 +1,7 @@
 
   {
     "alert_1": {
-      "message": "El e-commerce de demostración esta en producción, pronto estará disponoble.",
+      "message": "El producto se ha añadido a la cesta",
       "type": "success"
     },
     "alert_2": {

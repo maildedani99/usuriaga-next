@@ -57,7 +57,7 @@ export default function SummaryCart(props) {
               //href={cartItems.length > 0 ? "/payForm" : "#"}
               className={`flex flex-1 p-4 text-xl text-white text-center mb-8  cursor-pointer bg-primary ${cartItems.length === 0 && ' cursor-default opacity-50'}`}
             >
-              <span className="mx-auto uppercase">
+              <span className="mx-auto font-semibold">
                 Comprar
               </span>
             </Link>

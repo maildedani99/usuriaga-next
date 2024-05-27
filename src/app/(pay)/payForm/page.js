@@ -55,7 +55,6 @@ export default function PayForm() {
         return false;
       }
     }
-    
     // Si el código postal cumple con los criterios anteriores, se considera de la península
     return true;
   };
@@ -98,10 +97,10 @@ export default function PayForm() {
   },[])
 
   return (
-    <div className="  flex flex-col container mx-auto mt-32 py-10 px-4 lg:px-0 justify-center w-full tracking-wider  font-light	 text-center">
+    <div className="  flex flex-col container mx-auto mt-20 lg:mt-32 py-10 px-4 lg:px-0 justify-center w-full tracking-wider  font-light	 text-center">
       <h2 className="mx-auto  text-4xl lg:text-5xl">Formulario de compra</h2>
       <div className="flex flex-col lg:flex-row w-full grid-col-2 mx-auto">
-        <div className="flex w-3/6 flex-col flex-1 mt-28 lg:mb-10">
+        <div className="flex w-full lg:w-3/6 flex-col flex-1 mt-28 lg:mb-10">
           <div className="flex flex-col md:flex-row  ">
             <InputForm inputPlaceholder="Nombre *" inputType="text" handleInputChange={handleInputChange} name="first_name" validated={validated} formData={formData} required={true} />
             <div className="w-8 h-4"></div>
@@ -148,7 +147,7 @@ export default function PayForm() {
           onClick={handleLinkClick}
           className="flex w-1/3 mx-auto p-4 text-xl text-white text-center mb-8 cursor-pointer bg-primary"
         >
-          <span className="mx-auto uppercase">
+          <span className="mx-auto font-semibold">
             Finalizar compra
           </span>
         </a>

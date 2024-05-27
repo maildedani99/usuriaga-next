@@ -8,7 +8,7 @@ export default function ModalAlert() {
   const messageId = searchParams.get("messageId");
   const { message, type } = getMessageById(messageId);
 
-  const textStyle = type === "success" ? "text-primary" : "text-red-800";
+  const textStyle = type === "success" ? "text-text" : "text-red-800";
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
@@ -21,7 +21,7 @@ export default function ModalAlert() {
         <div className="flex p-4">
           <button
             onClick={() => router.back()}
-            className="flex lg:w-2/6  mx-auto sm:w-3/6 w-4/6 bg-[#517A93]  py-2 rounded-full text-white cursor-pointer hover:bg-secondary border-2 border-secondary "
+            className="flex lg:w-2/6  mx-auto sm:w-3/6 w-4/6 bg-primary  py-2  text-white cursor-pointer "
           >
             <span className="mx-auto font-semibold ">Aceptar</span>
           </button>

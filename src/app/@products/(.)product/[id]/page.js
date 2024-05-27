@@ -1,6 +1,6 @@
-import ProductViewCard from 'src/app/components/ProductViewCard'
 import Modal from '../../../components/Modal'
-import { getProductById } from 'src/app/lib/data'
+import ProductViewCard from '../../../components/ProductViewCard'
+import { getProductById } from '../../../lib/data'
 
 
 export default async function Product({ params }) {
@@ -11,9 +11,7 @@ export default async function Product({ params }) {
 
     return (
         <Modal>
-            <div className='min-h-screen'>
                 <ProductViewCard product={product[0]} />
-            </div>
         </Modal>
     )
 

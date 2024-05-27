@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 
 export default function ButtonAddToCart({ item }) {
 
-  
+
   const {
     addItemToCart,
     sizeSelectedOption,
@@ -52,7 +52,7 @@ export default function ButtonAddToCart({ item }) {
 
 
   const showToastMessage = (type) => {
-    if ( type === "success") {
+    if (type === "success") {
       toast.success("Este producto se ha añadido al carrito", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 2000,
@@ -89,7 +89,7 @@ export default function ButtonAddToCart({ item }) {
 
 
   return (
-    <div className="flex flex-1 flex-col w-full mt-8 text-lg font-medium ">
+    <div className="flex  flex-col w-full mt-8 text-lg font-medium ">
       Colores
       <div className="flex mt-2 mb-4">
         {itemWithDetails && itemWithDetails.colors?.map((e, index) => {
@@ -124,13 +124,15 @@ export default function ButtonAddToCart({ item }) {
 
       }
 
-      <input
-        className="flex mt-10 flex-1 p-4 font-normal text-xl text-white uppercase cursor-pointer text-center mb-8 focus:outline-none"
+      <button
+        className="flex mt-10 xl:w-4/6 lg:w-5/6 md:w-3/6 sm:w-4/6 w-5/6  mx-auto p-4 font-semibold  bg-primary text-xl text-white  cursor-pointer text-center mb-8 focus:outline-none"
         readOnly
         onClick={handleAddItemToCard}
-        style={{ backgroundColor: "#dac895" }}
-      defaultValue="Añadir al carrito"
-      />
+      >
+        <span className="mx-auto">
+        Añadir al carrito
+        </span>
+      </button>
       <div className="flex">
         <HiLockClosed size={20} color="#dac895" className="my-auto" />{" "}
         <span className="text-base text-primary my-auto ml-1 mt-1">
