@@ -32,7 +32,7 @@ export default function SummaryCart(props) {
               <span> (impuestos inc.) </span>
             </div>
             <div>
-              <span>{(totalPrice).toFixed(2)} €</span>
+              <span>{(totalPrice).toString().replace('.', ',')} €</span>
             </div>
           </div>
           <div className="flex w-3/3  py-3 justify-between	mx-6 mt-6">
@@ -40,7 +40,7 @@ export default function SummaryCart(props) {
               <span className="uppercase text-lg ">envío</span>
             </div>
             <div>
-              <span>{totalPrice !== 0 ? envio.toFixed(2) : 0} €</span>
+              <span>{totalPrice !== 0 ? envio.toString().replace('.', ',') : 0} €</span>
             </div>
           </div>
           <div className="flex w-3/3  border-t-2 border-[#DAC895] py-3 justify-between	mx-6 mt-10">
@@ -48,7 +48,7 @@ export default function SummaryCart(props) {
               <span className="uppercase text-lg ">total</span>
             </div>
             <div>
-              <span>{totalPrice ? (totalPrice + envio).toFixed(2) : "0.00"} €</span>
+              <span>{totalPrice ? (totalPrice + envio).toString().replace('.', ',') : "0.00"} €</span>
             </div>
           </div>
           <div className="flex w-5/6 p-8 mx-auto mt-16">

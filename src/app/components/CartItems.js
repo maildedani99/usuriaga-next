@@ -44,7 +44,7 @@ export default function CartItems() {
                 <QuantitySelector item={item} handlePlus={handlePlus} />
               </div>
               <span className="flex flex-col text-center px-3 text-xl my-auto font-semibold">
-                {item.price * item.quantity} €
+                {(item.price * item.quantity).toString().replace('.', ',')} €
               </span>
               <div
                 className="flex justify-center sm:justify-end cursor-pointer my-auto"
