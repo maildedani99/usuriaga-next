@@ -11,6 +11,10 @@
     "alert_3": {
       "message": "Lo sentimos, tu mensaje no se ha podido enviar correctamente, vuelve a intentarlo o escribenos directamente a info@miboutiqueonline.com.",
       "type": "error"
+    },
+    "alert_4": {
+      "message": "Debes seleccionar una talla y un color",
+      "type": "error"
     }
   }
   

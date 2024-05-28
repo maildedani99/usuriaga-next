@@ -2,8 +2,6 @@
 
 import { useContext, useEffect } from "react";
 import { AppContext } from "../lib/AppContext";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { HiLockClosed } from "react-icons/hi2";
 import useProducts from "../lib/utils";
 import { useRouter } from "next/navigation";
@@ -51,27 +49,14 @@ export default function ButtonAddToCart({ item }) {
   };
 
 
-  const showToastMessage = (type) => {
-    if (type === "success") {
-      toast.success("Este producto se ha añadido al carrito", {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 2000,
-      });
-    }
-    if (type === "error") {
-      toast.error("Debes seleccionar color y talla", {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 2000,
-      });
-    }
-  };
+  
 
   const handleAddItemToCard = () => {
     if (colorSelectedOption && sizeSelectedOption) {
       addItemToCart(item, sizeSelectedOption, colorSelectedOption);
       router.push(`/alert?messageId=alert_1`)
     } else {
-      showToastMessage("error");
+      router.push(`/alert?messageId=alert_4`)
     }
   };
 
@@ -139,7 +124,6 @@ export default function ButtonAddToCart({ item }) {
           Pago seguro
         </span>
       </div>
-      <ToastContainer />
     </div>
   );
 }
