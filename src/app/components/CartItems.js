@@ -6,6 +6,7 @@ import { LiaCartPlusSolid } from "react-icons/lia";
 import { useContext } from "react";
 import { AppContext } from "../lib/AppContext";
 import Link from "next/link";
+import ClientImage from "./ClientImage";
 
 export default function CartItems() {
   const { cartItems, removeItemFromCart, handlePlus } = useContext(AppContext);
@@ -16,7 +17,7 @@ export default function CartItems() {
         cartItems?.map((item, index) => (
           <div key={index} className="flex flex-col sm:flex-row border-t border-[#DAC895] py-4">
             <div className="flex w-full sm:w-1/12 lg:w-2/12 my-auto justify-center sm:justify-start mb-4 sm:mb-0">
-              <Image
+              <ClientImage
                 src={item.images[0].url}
                 alt="imagen"
                 width={80}

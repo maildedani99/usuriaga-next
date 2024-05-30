@@ -6,13 +6,13 @@ export default async function Novelties() {
 
   const products = await getNovelties()
 
-  const plainProducts = JSON.parse(JSON.stringify(products));
+  //const plainProducts = JSON.parse(JSON.stringify(products));
 
 
   return (
     <>
     
-      <ProductsView products={plainProducts} title="Novedades" />
+      <ProductsView products={products} title="Novedades" />
     </>
   )
 

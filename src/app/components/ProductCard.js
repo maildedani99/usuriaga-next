@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import ClientImage from "./ClientImage";
 
 export default function ProductCard({ product }) {
 
@@ -13,7 +14,7 @@ export default function ProductCard({ product }) {
         {product.outlet == false &&
           <span className="absolute bg-primary text-sm top-2 right-8 font-normal text-white px-2 uppercase">Outlet</span>
         }
-      <Image src={product.images[0].url && product.images[0].url} width={300} height={450} alt="foto" className="mx-auto" />
+      <ClientImage src={product.images[0].url && product.images[0].url} width={300} height={450} alt="foto" className="mx-auto" />
       </div>
       <span className="	 mx-auto mt-2">{product.name}</span>
       {product.reduced_price !== 0 ? (

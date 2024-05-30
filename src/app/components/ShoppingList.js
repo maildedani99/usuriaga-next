@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../lib/AppContext";
 import Image from "next/image";
+import ClientImage from "./ClientImage";
 
 export default function ShoppingList() {
   
@@ -35,7 +36,7 @@ export default function ShoppingList() {
             className="flex w-full border-t border-[#DAC895]  h-auto"
           >
             <div className="hidden sm:flex w-2/12 my-auto ">
-              <Image
+              <ClientImage
                 src={item.images[0].url}
                 alt="imagen"
                 width={30}

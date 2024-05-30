@@ -1,8 +1,8 @@
 import ProductCard from "./ProductCard";
 
-export default function ProductsView({ products = plainProducts, title }) {
+export default function ProductsView({ products, title }) {
 
-  
+  console.log(products)
   return (
     <>
     <div className="flex text-4xl md:text-5xl justify-center w-full tracking-wider capitalize font-light text-[#515151] text-center">

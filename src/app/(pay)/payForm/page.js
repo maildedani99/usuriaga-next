@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import InputSelect from "../../components/InputSelect";
 import { provinces } from "../../lib/postalCodes";
 
-export default function PayForm() {
+export default function PayForm() { 
 
   const router = useRouter()
 
@@ -22,7 +22,10 @@ export default function PayForm() {
   const countries = [{id:1, value:"España"}, {id:2, value:"Portugal"}]
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value, id, key } = event.target;
+    console.log(event, event.target)
+    if (name=="province") {
+    }
     setFormData({
       ...formData,
       [name]: value,

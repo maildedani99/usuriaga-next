@@ -15,7 +15,7 @@ export default function InputSelect({ handleInputChange, options, inputPlacehold
             >
                 <option value=""  selected></option>
                 {options.map(option => (
-                    <option key={option.id} value={option.value}>{option.value}</option>
+                    <option key={option.id}  value={option.value}>{option.value}</option>
                 ))}
             </select>
             <label

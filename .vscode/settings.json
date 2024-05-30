@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "134.0.10.184",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "usuriaga 2",
+            "database": "usuriaga",
+            "username": "usuria1598",
+            "password": "+6C29nAK"
+        }
+    ]
+}

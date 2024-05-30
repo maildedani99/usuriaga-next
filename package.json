@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "next": "14.0.3",
+    "next-cloudinary": "^6.6.2",
     "react": "^18",
     "react-dom": "^18",
     "react-easy-swipe": "^0.0.23",
