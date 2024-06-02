@@ -85,16 +85,20 @@ export default function PayForm() {
   };
 
   const handleLinkClick = (e) => {
+    console.log( order)
+
     setValidated(true);
     if (!allRequiredFieldsCompleted()) {
       e.preventDefault();
     } else {
-      handleConfirm();
+      //handleConfirm();
     }
   };
 
   const handleConfirm = async () => {
+    console.log( order)
     const resPayment = await completeOrderProcess(formData, orderItems, order);
+    console.log(resPayment)
     resPayment && setRedsysData(resPayment.order)
   }
 
@@ -154,7 +158,7 @@ export default function PayForm() {
         </div>
 
       </div>
-      <Link href={"/paySummary"} legacyBehavior>
+      <div /* href={"/paySummary"} */ legacyBehavior>
         <a
           onClick={handleLinkClick}
           className="flex w-1/3 mx-auto p-4 text-xl text-white text-center mb-8 cursor-pointer bg-primary"
@@ -163,7 +167,7 @@ export default function PayForm() {
             Finalizar compra
           </span>
         </a>
-      </Link>
+      </div>
       {/* <RedsysPaymentForm /> */}
     </div>
   );

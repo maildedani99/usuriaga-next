@@ -8,34 +8,32 @@ export default function FinalizeButton() {
 
     const { redsysData, setRedsysData } = useContext(AppContext);
 
-    const [dataFetchRedsys, setDataFetchrRedsys] = useState()
 
-    //const dataFetchRedsys = redsysData;
-  console.log(redsysData)
+    const dataFetchRedsys = redsysData;
 
     const onGetRedsysData = async () => {
-        const data = await getRedsysData(redsysData);
-        console.log(data)
-        setDataFetchrRedsys(data)
-        return data;
+        const resData = await getRedsysData(dataFetchRedsys);
+        console.log(resData)
+        setRedsysData(resData)
     }
-    
-     
+
+
 
     useEffect(() => {
         if (redsysData) {
-             onGetRedsysData();
+            console.log(redsysData)
+            onGetRedsysData();
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
     return (
-      
-        <form  name="form" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
+
+        <form name="form" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
             <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />
-            <input type="hidden" name="Ds_MerchantParameters" defaultValue="" value={dataFetchRedsys?.jsonData}/>
-            <input type="hidden" name="Ds_Signature" defaultValue="" value={dataFetchRedsys?.signature}/>
+            <input type="hidden" name="Ds_MerchantParameters" defaultValue="" value={redsysData.jsonData} />
+            <input type="hidden" name="Ds_Signature" defaultValue="" value={redsysData.signature} />
             <button className="flex w-3/12 p-4 text-xl text-white text-center mb-8  cursor-pointer bg-primary justify-center mx-auto" type="submit">Realizar Pago</button>
         </form>
     );

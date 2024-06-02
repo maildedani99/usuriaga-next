@@ -87,9 +87,10 @@ export  async function createEmail (data) {
 
 export  async function getRedsysData (redsysData) {
   const body = {
-    amount: redsysData.total?.toFixed(2),
+    orderAmount: redsysData.total?.toFixed(2),
     order: redsysData.ds_order
   }
+  console.log(body)
   const url = process.env.NEXT_PUBLIC_API_URL +  "redsys/generate-signature";
   return fetchApiData(url, "POST", body);
 }

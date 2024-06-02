@@ -10,7 +10,7 @@ export default function PaySummary() {
 
   const router = useRouter()
 
-  const { formData, cartItems, setOrderItems } = useContext(AppContext);
+  const { formData, cartItems, setOrderItems, orderItems } = useContext(AppContext);
 
   const itemsOrderCreate = (cartItems) => {
     let items = [];
@@ -23,11 +23,13 @@ export default function PaySummary() {
         "price": item.price 
       };
       items.push(newItem);
+      console.log(newItem)
     });
     setOrderItems(items);
   }
   
   useEffect(()=> {
+    console.log(orderItems)
     if (!cartItems || cartItems.length === 0) {
       router.push('/')
     } else itemsOrderCreate(cartItems)
