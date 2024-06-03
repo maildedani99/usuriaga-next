@@ -85,18 +85,15 @@ export default function PayForm() {
   };
 
   const handleLinkClick = (e) => {
-    console.log( order)
-
     setValidated(true);
     if (!allRequiredFieldsCompleted()) {
       e.preventDefault();
     } else {
-      //handleConfirm();
+      handleConfirm();
     }
   };
 
   const handleConfirm = async () => {
-    console.log( order)
     const resPayment = await completeOrderProcess(formData, orderItems, order);
     console.log(resPayment)
     resPayment && setRedsysData(resPayment.order)
