@@ -17,7 +17,18 @@ export default function ProductViewCard({ product }) {
         <div className="text-2xl flex flex-col my-auto w-full lg:w-2/6">
           <div className="flex flex-col text-justify w-6/6">
             <span className="text-3xl font-medium">{product.name}</span>
-            <span className="text-lg font-medium mt-4">{product.price.toString().replace('.', ',')}€  {product.reduced_price.toString().replace('.', ',')}€</span>
+            {product.reduced_price !== 0 ? (
+              <div className="flex flex-row text-xl ml-1   ">
+                <span className=" 	mt-2 line-through  mr-1">
+                  {product.price.toString().replace('.', ',')}€{" "}
+                </span>
+                <span className=" mt-2 text-red-600 ml-1">
+                  {product.reduced_price.toString().replace('.', ',')}€
+                </span>
+              </div>
+            ) : (
+              <span className="mt-2 text-xl ">{product.price.toString().replace('.', ',')}€</span>
+            )}
             <span className="font-body text-base tracking-wider font-light mt-4">
               {product.description}
             </span>

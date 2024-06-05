@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { useContext } from "react";
 import { AppContext } from "../lib/AppContext";
 import Link from "next/link";
@@ -7,13 +7,15 @@ import { roundToTwoDecimals, formatPrice } from "../lib/helpers";
 export default function SummaryCart(props) {
   const { cartItems } = useContext(AppContext);
 
-  const totalPrice = cartItems
-    ? roundToTwoDecimals(cartItems.reduce((total, item) => {
-        const itemTotal = item.price * item.quantity;
-        return total + itemTotal;
-      }, 0))
-    : 0;
+  const calculateTotalPrice = () => {
+    return cartItems.reduce((total, item) => {
+      const itemPrice = item.reduced_price ? item.reduced_price : item.price;
+      const itemTotal = itemPrice * item.quantity;
+      return total + itemTotal;
+    }, 0);
+  };
 
+  const totalPrice = roundToTwoDecimals(calculateTotalPrice());
   const envio = totalPrice >= 60 ? 0 : 3.90;
 
   return (
@@ -37,7 +39,7 @@ export default function SummaryCart(props) {
               <span className="uppercase text-lg">envío</span>
             </div>
             <div>
-              <span>{totalPrice !== 0 ? formatPrice(envio) : "0,00"} €</span>
+              <span>{formatPrice(envio)} €</span>
             </div>
           </div>
           <div className="flex w-3/3 border-t-2 border-[#DAC895] py-3 justify-between mx-6 mt-10">
@@ -45,7 +47,7 @@ export default function SummaryCart(props) {
               <span className="uppercase text-lg">total</span>
             </div>
             <div>
-              <span>{totalPrice ? formatPrice(totalPrice + envio) : "0,00"} €</span>
+              <span>{formatPrice(totalPrice + envio)} €</span>
             </div>
           </div>
           <div className="flex w-5/6 p-8 mx-auto mt-16">
