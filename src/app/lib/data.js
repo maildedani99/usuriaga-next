@@ -87,7 +87,7 @@ export  async function createEmail (data) {
 
 export  async function getRedsysData (redsysData) {
   const body = {
-    orderAmount: redsysData.total?.toFixed(2),
+    amount: redsysData.total?.toFixed(2),
     order: redsysData.ds_order
   }
   console.log(body)
