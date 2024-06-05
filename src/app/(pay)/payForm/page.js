@@ -97,6 +97,7 @@ export default function PayForm() {
     const resPayment = await completeOrderProcess(formData, orderItems, order);
     console.log(resPayment)
     resPayment && setRedsysData(resPayment.order)
+    router.push('paySummary')
   }
 
   useEffect(() => {
@@ -155,7 +156,7 @@ export default function PayForm() {
         </div>
 
       </div>
-      <div /* href={"/paySummary"} */ legacyBehavior>
+      <div /* href={"/paySummary"} */ >
         <a
           onClick={handleLinkClick}
           className="flex w-1/3 mx-auto p-4 text-xl text-white text-center mb-8 cursor-pointer bg-primary"
