@@ -1,40 +1,54 @@
-"use client"
+"use client";
 import { useContext, useEffect, useState } from "react";
-import { getRedsysData } from "../lib/data";
 import { AppContext } from "../lib/AppContext";
-
+import { getRedsysData } from "../lib/data";
 
 export default function FinalizeButton() {
-
     const { redsysData, setRedsysData } = useContext(AppContext);
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState(null);
 
-
-    const dataFetchRedsys = redsysData;
-
-    const onGetRedsysData = async () => {
-        const resData = await getRedsysData(dataFetchRedsys);
-        console.log(resData)
-        setRedsysData(resData)
-    }
-
-
+    const fetchRedsysData = async (dataFetchRedsys) => {
+        try {
+            const result = await getRedsysData(dataFetchRedsys);
+            return result;
+        } catch (error) {
+            console.error('Error al obtener datos de Redsys:', error);
+            throw error;
+        }
+    };
 
     useEffect(() => {
         if (redsysData) {
-            console.log(redsysData)
-            onGetRedsysData();
+            fetchRedsysData(redsysData)
+                .then((data) => {
+                    setData(data);
+                    setLoading(false);
+                })
+                .catch((error) => {
+                    console.error(error);
+                    setLoading(false);
+                });
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [redsysData]);
 
+    if (loading) {
+        return <div>Cargando...</div>;
+    }
 
     return (
-
-        <form name="form" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
-            <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />
-            <input type="hidden" name="Ds_MerchantParameters" defaultValue="" value={redsysData.jsonData} />
-            <input type="hidden" name="Ds_Signature" defaultValue="" value={redsysData.signature} />
-            <button className="flex w-3/12 p-4 text-xl text-white text-center mb-8  cursor-pointer bg-primary justify-center mx-auto" type="submit">Realizar Pago</button>
-        </form>
+        data && (
+            <form name="form" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
+                <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />
+                <input type="hidden" name="Ds_MerchantParameters" value={data.jsonData} />
+                <input type="hidden" name="Ds_Signature" value={data.signature} />
+                <button
+                    className="flex w-3/12 p-4 text-xl text-white text-center mb-8 cursor-pointer bg-primary justify-center mx-auto"
+                    type="submit"
+                >
+                    Realizar Pago
+                </button>
+            </form>
+        )
     );
 }
