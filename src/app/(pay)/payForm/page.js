@@ -94,6 +94,8 @@ export default function PayForm() {
   };
 
   const handleConfirm = async () => {
+    console.log(orderItems)
+    console.log(order)
     const resPayment = await completeOrderProcess(formData, orderItems, order);
     console.log(resPayment)
     resPayment && setRedsysData(resPayment.order)
