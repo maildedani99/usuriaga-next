@@ -21,10 +21,13 @@ export default function Footer() {
             <h3 className="text-2xl font-medium mx-auto">Información legal</h3>
             <div className="flex flex-col mx-auto text-md">
             <Link className="mx-auto mt-3" href="/terms">
-              - Términos y condiciones
+              Términos y Condiciones
             </Link>
             <Link className="mx-auto mt-2" href="/legals">
-              - Aviso Legal y Privacidad
+              Aviso Legal y Privacidad
+            </Link>
+            <Link className="mx-auto mt-2" href="/changes">
+              Envíos, Cambios y Devoluciones
             </Link>
             </div>
           </div>
