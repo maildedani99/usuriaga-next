@@ -33,7 +33,8 @@ export default function CartItems() {
               <div className="flex flex-col sm:flex-row flex-1 justify-evenly">
                 <div className="flex flex-col text-center sm:text-left ml-4 text-base lg:text-lg w-full sm:w-2/6 font-medium my-auto">
                   <span>{item.name}</span>
-                  <span className="mt-2">{price.toString().replace('.', ',')} €</span>
+                  <span className="mt-2">{price.toFixed(2).replace('.', ',')} €</span>
+
                 </div>
                 <div className="flex flex-col text-center px-3 font-medium my-auto">
                   <div
@@ -50,7 +51,7 @@ export default function CartItems() {
                   <QuantitySelector item={item} handlePlus={handlePlus} />
                 </div>
                 <span className="flex flex-col text-center px-3 text-xl my-auto font-semibold">
-                  {totalPrice.toString().replace('.', ',')} €
+                  {totalPrice.toFixed(2).toString().replace('.', ',')} €
                 </span>
                 <div
                   className="flex justify-center sm:justify-end cursor-pointer my-auto"
