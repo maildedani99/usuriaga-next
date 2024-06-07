@@ -1,16 +1,18 @@
 {
-  "name": "usuriaga-next",
-  "version": "0.1.0",
+  "name": "usuriaga_collection",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "next": "14.0.3",
     "next-cloudinary": "^6.6.2",
+    "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-dom": "^18",
     "react-easy-swipe": "^0.0.23",
