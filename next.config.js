@@ -11,7 +11,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-store, max-age=0', // Deshabilitar caché
+            value: 'no-store, max-age=0, no-cache',// Deshabilitar caché
           },
         ],
       },
