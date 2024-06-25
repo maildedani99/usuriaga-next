@@ -4,19 +4,6 @@ const nextConfig = {
   images: {
     domains: ['res.cloudinary.com'],
   },
-  async headers() {
-    return [
-      {
-        source: '/:path*', // Aplicar a todas las rutas
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'no-store, max-age=0, no-cache',// Deshabilitar caché
-          },
-        ],
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;

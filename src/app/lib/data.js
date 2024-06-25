@@ -4,6 +4,7 @@ const fetchApiData = async (url, method = "GET", body = null) => {
     method: method,
     headers: {
       "Content-type": "application/json",
+      'Cache-Control':'no-store',
     },
     mode: 'cors',
     redirect: 'follow',
@@ -27,58 +28,57 @@ const fetchApiData = async (url, method = "GET", body = null) => {
 
 export  async function getCategories () {
     const url = process.env.NEXT_PUBLIC_API_URL +  "categories/all";
-    const resCategories = fetchApiData(url);
-    return resCategories;
+    return await   fetchApiData(url);
 }
 
 export  async function getProductsBySubcategory (id) {
     const url = process.env.NEXT_PUBLIC_API_URL + "products/getBySubCategory/" + id;
-    return fetchApiData(url);
+    return await fetchApiData(url);
   };
 
   export  async function getNovelties () {
     const url = process.env.NEXT_PUBLIC_API_URL + "products/novelties/all";
-    return fetchApiData(url);
+    return await fetchApiData(url);
   };
 
   export  async function getDiscounts () {
     const url = process.env.NEXT_PUBLIC_API_URL + "products/discounts/all";
-    return fetchApiData(url);
+    return await fetchApiData(url);
   };
 
   export  async function getOutletProducts () {
     const url = process.env.NEXT_PUBLIC_API_URL + "products/outlet/all";
-    return fetchApiData(url);
+    return await fetchApiData(url);
   };
 
   export  async function getSubcategory (id) {
     const url = process.env.NEXT_PUBLIC_API_URL + "subcategories/getById/" + id;
-    return fetchApiData(url);
+    return await fetchApiData(url);
   };
 
   export  async function getProductById (id) {
     const url = process.env.NEXT_PUBLIC_API_URL + "products/" + id;
-    return fetchApiData(url);
+    return await fetchApiData(url);
   };
 
   export  async function getProducts () {
     const url = process.env.NEXT_PUBLIC_API_URL + "products/all";
-    return fetchApiData(url);
+    return await fetchApiData(url);
   };
 
   export  async function getProductsStock () {
     const url = process.env.NEXT_PUBLIC_API_URL + "products/allStock";
-    return fetchApiData(url);
+    return await fetchApiData(url);
   };
 
   export  async function getColors () {
     const url = process.env.NEXT_PUBLIC_API_URL +  "colors/all";
-    return fetchApiData(url);
+    return await fetchApiData(url);
 }
 
 export  async function getSizes () {
   const url = process.env.NEXT_PUBLIC_API_URL +  "sizes/all";
-  return fetchApiData(url);
+  return await fetchApiData(url);
 }
 
 export  async function createEmail (data) {
@@ -86,7 +86,7 @@ export  async function createEmail (data) {
     email : data.email
   }
   const url = process.env.NEXT_PUBLIC_API_URL +  "email/create";
-  return fetchApiData(url, "POST", body);
+  return await fetchApiData(url, "POST", body);
 }
 
 export  async function getRedsysData (redsysData) {
@@ -96,7 +96,7 @@ export  async function getRedsysData (redsysData) {
   }
   console.log(body)
   const url = process.env.NEXT_PUBLIC_API_URL +  "redsys/generate-signature";
-  return fetchApiData(url, "POST", body);
+  return await fetchApiData(url, "POST", body);
 }
 
 export  async function completeOrderProcess (formData, orderItems, order) {
@@ -106,7 +106,7 @@ export  async function completeOrderProcess (formData, orderItems, order) {
       items: orderItems
     }
     const url = process.env.NEXT_PUBLIC_API_URL +  "orders/completeOrderProcess";
-  return fetchApiData(url, "POST",body);
+  return await fetchApiData(url, "POST",body);
 }
 
 
