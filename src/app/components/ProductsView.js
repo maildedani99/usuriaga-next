@@ -9,7 +9,7 @@ export default function ProductsView({ products, title }) {
       </div>
       {products && products.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 text-5xl justify-center w-full tracking-wider font-light text-[#515151] text-center">
-          {products.map((product) => (
+          {products.slice().reverse().map((product) => (
             <ProductCard product={product} key={product.id} />
           ))}
         </div>
