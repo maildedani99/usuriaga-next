@@ -13,13 +13,28 @@ export default function PayForm() {
 
   const router = useRouter()
 
-  const { formData, setFormData, orderItems, order, cartItems, setRedsysData } = useContext(AppContext);
+  const { formData, setFormData, orderItems, order, cartItems, setRedsysData, setOrderItems } = useContext(AppContext);
 
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [requestedInvoice, setRequestedInvoice] = useState(false);
   const [validated, setValidated] = useState(false);
 
   const countries = [{id:1, value:"España"}, {id:2, value:"Portugal"}]
+
+  const itemsOrderCreate = () => {
+    let items = [];
+    cartItems.forEach(item => {
+        let newItem = {
+            "product_id": item.id,
+            "size_id": item.size.id,
+            "color_id": item.color.id,
+            "quantity": item.quantity,
+            "price": item.price
+        };
+        items.push(newItem);
+    });
+    setOrderItems(items);
+}
 
   const handleInputChange = (event) => {
     const { name, value, id, key } = event.target;
@@ -105,6 +120,8 @@ export default function PayForm() {
   useEffect(() => {
     if (!cartItems || cartItems.length === 0) {
       router.push('/')
+    } else {
+      itemsOrderCreate()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

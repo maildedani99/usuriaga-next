@@ -28,11 +28,9 @@ export default function PaySummary() {
     useEffect(() => {
         if (!cartItems || cartItems.length === 0) {
             router.push('/');
-        } else {
-            itemsOrderCreate(cartItems);
-        }
+        } 
          // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [cartItems, router, setOrderItems]);
+    }, [cartItems, router]);
 
     return (
         formData && (

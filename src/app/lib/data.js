@@ -100,6 +100,7 @@ export  async function getRedsysData (redsysData) {
 }
 
 export  async function completeOrderProcess (formData, orderItems, order) {
+  console.log(orderItems)
    const body = {
     customer: formData,
       order: order,
