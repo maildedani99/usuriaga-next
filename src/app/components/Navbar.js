@@ -26,7 +26,7 @@ export default async function Navbar() {
           className="flex  flex-1 border-b 	bg-primary"
         >
           <div className="flex flex-1 w-3/5 justify-center  p-1 	 tracking-widest ">
-            <span className="">
+            <span className="text-w">
               ENVÍOS GRATIS para compras superiores a 60€
             </span>
           </div>
