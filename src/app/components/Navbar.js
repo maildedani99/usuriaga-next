@@ -23,8 +23,7 @@ export default async function Navbar() {
     <>
       <div className="hidden lg:flex w-full fixed flex-col bg-white top-0 z-10	">
         <div
-          className="flex  flex-1 border-b 	"
-          style={{ backgroundColor: "#dac895" }}
+          className="flex  flex-1 border-b 	bg-primary"
         >
           <div className="flex flex-1 w-3/5 justify-center  p-1 	 tracking-widest ">
             <span className="">
