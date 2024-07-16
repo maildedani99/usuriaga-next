@@ -1,11 +1,10 @@
 import CarouselWrapper from "./CarouselWrapper";
 import ButtonAddToCart from "./ButtonAddToCart";
 import CloseModalIcon from "./CloseModalIcon";
+import Spinner from "./Spinner";
 
 export default function ProductViewCard({ product }) {
-  if (!product || typeof product !== 'object') {
-    return null;
-  }
+ 
 
   // Function to convert newline characters to <br/> tags
   const formatDescription = (description) => {
@@ -21,6 +20,8 @@ export default function ProductViewCard({ product }) {
     <div className="flex flex-1 relative md:container mx-auto text-[#636364]">
       <CloseModalIcon />
       <div className="flex flex-col lg:flex-row flex-1 justify-evenly mt-20">
+        {product ?
+        <>
         <div className="flex my-auto w-full justify-center lg:w-4/12">
           <CarouselWrapper product={product} />
         </div>
@@ -49,6 +50,11 @@ export default function ProductViewCard({ product }) {
             <ButtonAddToCart item={product} />
           </div>
         </div>
+            </>
+          :
+          <Spinner />
+        }
+
       </div>
     </div>
   );

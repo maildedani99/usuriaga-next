@@ -6,6 +6,8 @@ import { AppContext } from "../lib/AppContext";
 
 export default function Searcher({ products }) {
 
+    console.log(products)
+
     const [filteredProducts, setFilteredProducts] = useState([])
 
     const { searchTerm } = useContext(AppContext)
@@ -26,6 +28,6 @@ export default function Searcher({ products }) {
     }, [searchTerm])
 
     return (
-        <ProductsView products={filteredProducts} title={null} />
+        <ProductsView products={searchTerm ? filteredProducts : products} title={null} />
     )
 }
