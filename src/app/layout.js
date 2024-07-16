@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import { workSans } from "./ui/fonts";
 import { CartProvider } from "./lib/AppContext";
 import Head from 'next/head';
+import { SWRConfig } from "swr";
+import swrConfig from "./utils/swrConfig";
 
 const inter = Inter({ subsets: ["latin"] });
 

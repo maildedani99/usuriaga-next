@@ -1,12 +1,18 @@
+"use client"
+import useSWR from "swr";
 import ProductsView from "../../../components/ProductsView";
-import { getNovelties } from "../../../lib/data";
+import { fetcher } from "../../../utils/fetcher";
+import Error from "../../../components/Error";
 
 
-export default async function Novelties() {
+export default function Novelties() {
 
-  const products = await getNovelties()
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}products/novelties/all`, fetcher);
+
+  if (error) return <Error />;
+
 
   return (
-      <ProductsView products={products} title="Novedades" />
+      <ProductsView products={data} title="Novedades" />
     )
 }

@@ -1,14 +1,21 @@
+"use client"
+import useSWR from "swr";
 import ProductsView from "../../../components/ProductsView";
 import { getProductsBySubcategory, getSubcategory } from "../../../lib/data"
+import { fetcher } from "../../../utils/fetcher";
+import Error from "../../../components/Error";
 
 
-export default async function Products({ params }) {
+export default function Products({ params }) {
 
-  const products = await getProductsBySubcategory(params.id)
-  const resSubcategory = await getSubcategory(params.id)
-  const subcategory = resSubcategory[0]
+  const { data , error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}products/getBySubCategory/${params.id}`, fetcher);
+  console.log(data, error)
+  const { data : subcategory, error : errorSubcategory } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}subcategories/getById/${params.id}`, fetcher);
+
+  if (error) return <Error />;
+
   return (
 
-      <ProductsView products={products} title={subcategory ? subcategory?.name : "ERROR"} />
+      <ProductsView products={data} title={subcategory ? subcategory[0]?.name : ""} />
   )
 }
