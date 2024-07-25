@@ -6,7 +6,6 @@ import { AppContext } from "../lib/AppContext";
 
 export default function Searcher({ products }) {
 
-    console.log(products)
 
     const [filteredProducts, setFilteredProducts] = useState([])
 

@@ -14,6 +14,10 @@ const messages = {
     alert_4: {
       message: "Debes seleccionar una talla y un color",
       type: "error"
+    },
+    alert_5: {
+      message: "El enlace se ha copiado con éxito",
+      type: "success"
     }
   };
   
