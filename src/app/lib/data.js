@@ -83,6 +83,11 @@ export  async function completeOrderProcess (formData, orderItems, order) {
   return await fetchApiData(url, "POST",body);
 }
 
+export  async function comfirmOrder (orderId) {
+   const url = process.env.NEXT_PUBLIC_API_URL +  "order/confirm/" + orderId;
+ return await fetchApiData(url, "POST");
+}
+
 
 
 
