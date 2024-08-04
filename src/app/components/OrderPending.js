@@ -3,8 +3,8 @@
 import useSWR from "swr";
 import { fetcher } from "../utils/fetcher";
 import Error from "./Error";
-import html2pdf from 'html2pdf.js/dist/html2pdf.bundle';
-import { useRef } from "react";
+//import html2pdf from 'html2pdf.js/dist/html2pdf.bundle';
+//import { useRef } from "react";
 import { FaRegFilePdf } from "react-icons/fa6";
 import Spinner from "./Spinner";
 import Image from "next/image";
@@ -40,7 +40,7 @@ export default function OrderPending({ ds_order }) {
                         <FaRegFilePdf size={30} />
                     </button>
                 </div>
-                <div id="printable-content" ref={printRef} className="p-4 bg-white rounded-lg shadow-lg container border ">
+                <div id="printable-content"  className="p-4 bg-white rounded-lg shadow-lg container border ">
                     <div className="text-center mb-4">
                     <Image
                     src="/logogrisprueba.png"
