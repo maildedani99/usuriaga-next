@@ -7,7 +7,7 @@ import { comfirmOrder } from '../../lib/data';
 import OrderPending from '../../components/OrderPending';
 import Error from '../../components/Error';
 
-export default function PayKo() {
+export default function PaymentKo() {
     const searchParams = useSearchParams();
     const [paymentData, setPaymentData] = useState(null);
 

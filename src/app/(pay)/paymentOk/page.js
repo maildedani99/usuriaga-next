@@ -6,7 +6,7 @@ import Spinner from '../../components/Spinner';
 import { comfirmOrder } from '../../lib/data';
 import Error from '../../components/Error';
 
-export default function PayOk() {
+export default function PaymentOk() {
     const searchParams = useSearchParams();
     const [paymentData, setPaymentData] = useState(null);
 

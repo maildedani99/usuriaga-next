@@ -15,7 +15,7 @@ export default function OrderConfirmed({ ds_order }) {
 
     if (error) return <Error />;
 
-    const handleDownloadPDF = () => {
+   /*  const handleDownloadPDF = () => {
         const element = printRef.current;
         const opt = {
             margin: 1,
@@ -26,7 +26,7 @@ export default function OrderConfirmed({ ds_order }) {
         };
 
         html2pdf().from(element).set(opt).save();
-    };
+    }; */
 
     return (
         !data ?
@@ -35,9 +35,9 @@ export default function OrderConfirmed({ ds_order }) {
         (
             <div className="container mx-auto p-4">
                 <div className="flex justify-end mb-4">
-                    <button onClick={handleDownloadPDF}>
+                   /*  <button onClick={handleDownloadPDF}>
                         <FaRegFilePdf size={30} />
-                    </button>
+                    </button> */
                 </div>
                 <div id="printable-content" ref={printRef} className="p-4 bg-white rounded-lg shadow-lg container border ">
                     <div className="text-center mb-4">
