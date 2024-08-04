@@ -7,7 +7,7 @@ import html2pdf from 'html2pdf.js/dist/html2pdf.bundle';
 import { useRef } from "react";
 import { FaRegFilePdf } from "react-icons/fa6";
 import Spinner from "./Spinner";
-import Image from "next/image";
+import Image from "next/image"; // Importa el componente Image de next/image
 
 export default function OrderConfirmed({ ds_order }) {
     const printRef = useRef();
@@ -16,7 +16,7 @@ export default function OrderConfirmed({ ds_order }) {
 
     if (error) return <Error />;
 
-   /*  const handleDownloadPDF = () => {
+    /*  const handleDownloadPDF = () => {
         const element = printRef.current;
         const opt = {
             margin: 1,
@@ -45,6 +45,8 @@ export default function OrderConfirmed({ ds_order }) {
                         <Image
                             src="/logogrisprueba.png"
                             alt="Usuriaga"
+                            width={150} // Especifica las dimensiones para que Next.js pueda optimizar la imagen
+                            height={auto} // Asegúrate de que auto esté entre comillas o ajusta el valor según sea necesario
                             style={{ maxWidth: '150px', height: 'auto', margin: '0 auto' }}
                         />
                         <h1 className="text-2xl font-bold mt-20">Detalle de tu pedido</h1>
