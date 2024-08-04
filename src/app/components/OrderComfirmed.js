@@ -10,7 +10,7 @@ import Spinner from "./Spinner";
 import Image from "next/image"; // Importa el componente Image de next/image
 
 export default function OrderConfirmed({ ds_order }) {
-    const printRef = useRef();
+   // const printRef = useRef();
 
     const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}orders/order/${ds_order}`, fetcher);
 
@@ -36,7 +36,7 @@ export default function OrderConfirmed({ ds_order }) {
         (
             <div className="container mx-auto p-4">
                 <div className="flex justify-end mb-4">
-                    <button onClick={handleDownloadPDF}>
+                    <button >
                         <FaRegFilePdf size={30} />
                     </button>
                 </div>

@@ -10,13 +10,13 @@ import Spinner from "./Spinner";
 import Image from "next/image";
 
 export default function OrderPending({ ds_order }) {
-    const printRef = useRef();
+   // const printRef = useRef();
 
     const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}orders/order/${ds_order}`, fetcher);
 
     if (error) return <Error />;
 
-    const handleDownloadPDF = () => {
+    /* const handleDownloadPDF = () => {
         const element = printRef.current;
         const opt = {
             margin: 1,
@@ -27,7 +27,7 @@ export default function OrderPending({ ds_order }) {
         };
 
         html2pdf().from(element).set(opt).save();
-    };
+    }; */
 
     return (
         !data ?
@@ -36,7 +36,7 @@ export default function OrderPending({ ds_order }) {
         (
             <div className="container mx-auto p-4">
                 <div className="flex justify-end mb-4">
-                    <button onClick={handleDownloadPDF}>
+                    <button >
                         <FaRegFilePdf size={30} />
                     </button>
                 </div>
