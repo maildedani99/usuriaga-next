@@ -1,10 +1,11 @@
 'use client';
+
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import OrderComfirmed from '../../components/OrderComfirmed';
+import OrderPending from '../../components/OrderPending';
 import Spinner from '../../components/Spinner';
 import { comfirmOrder } from '../../lib/data';
-import OrderPending from '../../components/OrderPending';
 import Error from '../../components/Error';
 
 export default function PaymentKo() {
@@ -12,7 +13,7 @@ export default function PaymentKo() {
     const [paymentData, setPaymentData] = useState(null);
 
     const onConfirmOrder = async (orderId) => {
-        const res = comfirmOrder(orderId)
+        const res = comfirmOrder(orderId);
     }
 
     useEffect(() => {
@@ -35,14 +36,16 @@ export default function PaymentKo() {
     }, [searchParams]);
 
     return (
-        <div className="flex w-full h-screen">
-            <div className="mt-36 flex flex-1">
-                {paymentData ?
-                    <OrderPending ds_order={paymentData.Ds_Order} />
-                    :
-                    <Error />
-                }
+        <Suspense fallback={<Spinner />}>
+            <div className="flex w-full h-screen">
+                <div className="mt-36 flex flex-1">
+                    {paymentData ?
+                        <OrderPending ds_order={paymentData.Ds_Order} />
+                        :
+                        <Error />
+                    }
+                </div>
             </div>
-        </div>
+        </Suspense>
     );
 }
