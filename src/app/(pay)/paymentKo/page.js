@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react';
 import OrderComfirmed from '../../components/OrderComfirmed';
 import Spinner from '../../components/Spinner';
 import { comfirmOrder } from '../../lib/data';
+import OrderPending from '../../components/OrderPending';
 import Error from '../../components/Error';
 
-export default function PayOk() {
+export default function PayKo() {
     const searchParams = useSearchParams();
     const [paymentData, setPaymentData] = useState(null);
 
@@ -24,7 +25,7 @@ export default function PayOk() {
                 
                 // Parsear los parámetros decodificados
                 const parsedParams = JSON.parse(decodedParams);
-                onConfirmOrder(parsedParams.Ds_Order)
+                //onConfirmOrder(parsedParams.Ds_Order)
 
                 parsedParams && setPaymentData(parsedParams);
             } catch (error) {
@@ -37,7 +38,7 @@ export default function PayOk() {
         <div className="flex w-full h-screen">
             <div className="mt-36 flex flex-1">
                 {paymentData ?
-                    <OrderComfirmed ds_order={paymentData.Ds_Order} />
+                    <OrderPending ds_order={paymentData.Ds_Order} />
                     :
                     <Error />
                 }
