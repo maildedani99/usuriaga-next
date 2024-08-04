@@ -41,11 +41,11 @@ export default function OrderPending({ ds_order }) {
                 </div>
                 <div id="printable-content" ref={printRef} className="p-4 bg-white rounded-lg shadow-lg container border ">
                     <div className="text-center mb-4">
-                        <img
+                       /*  <img
                             src="/logogrisprueba.png"
                             alt="Usuriaga"
                             style={{ maxWidth: '150px', height: 'auto', margin: '0 auto' }}
-                        />
+                        /> */
                         <h1 className="text-2xl font-bold mt-20">Detalle de tu pedido</h1>
                     </div>
                     <div className="border rounded-lg p-4 mb-4 mt-8">
