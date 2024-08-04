@@ -1,13 +1,13 @@
 "use client"
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import OrderComfirmed from '../../components/OrderComfirmed';
 import Spinner from '../../components/Spinner';
 import { comfirmOrder } from '../../lib/data';
 import Error from '../../components/Error';
 
 export default function PayOk() {
-    const searchParams = useSearchParams();
+    //const searchParams = useSearchParams();
     const [paymentData, setPaymentData] = useState(null);
 
     const onConfirmOrder = async (orderId) => {
@@ -15,7 +15,7 @@ export default function PayOk() {
     }
 
     useEffect(() => {
-        const dsMerchantParameters = searchParams.get('Ds_MerchantParameters');
+        const dsMerchantParameters = null
 
         if (dsMerchantParameters) {
             try {
@@ -31,17 +31,14 @@ export default function PayOk() {
                 console.error("Error decodificando los parámetros:", error);
             }
         }
-    }, [searchParams]);
+    }, []);
 
     return (
         <div className="flex w-full h-screen">
             <div className="mt-36 flex flex-1">
-                {paymentData ?
-                    <OrderComfirmed ds_order={paymentData.Ds_Order} />
-                    :
-                    <Error />
-                }
+          <h1>Pedido confirmado</h1>
             </div>
         </div>
+      
     );
 }
