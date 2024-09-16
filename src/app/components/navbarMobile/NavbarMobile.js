@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HeaderWrapper } from "./styles";
 import NavMenu from "./NavMenu";
 import MenuButton from "./MenuButton";
@@ -23,6 +23,10 @@ export default function NavbarMobile  ({ categories })  {
     );
     setSubMenuOpen(true);
   };
+
+  useEffect(()=> {
+    setSubMenuOpen(false)
+  },[])
  
 
   return (
