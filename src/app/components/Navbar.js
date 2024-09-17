@@ -60,7 +60,8 @@ export default  function Navbar() {
      
       </div>
       <div className="flex lg:hidden w-full fixed flex-col bg-white top-0 z-10	">
-        <NavbarMobile categories={categories && categories} />
+      {categories && <NavbarMobile categories={categories} />}
+
       </div>
     </>
   );

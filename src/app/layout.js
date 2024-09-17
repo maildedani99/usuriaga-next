@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Usuriaga Collection",
-  description: "Tiendo de moda online con precios competitivos y envios",
+  description: "Tienda de moda online con precios competitivos",
 };
 
 export default function RootLayout({ children, modals, products }) {
