@@ -21,7 +21,7 @@ export default function ShoppingList() {
   const totalPrice = cartItems ? roundToTwoDecimals(calculateTotalPrice()) : 0;
 
   // Cálculo del envío redondeado a dos decimales
-  const envio = totalPrice >= 80 ? 0 : 3.90;
+  const envio = totalPrice >= 60 ? 0 : 3.90;
 
   // Uso de useEffect para actualizar el orden con el valor redondeado
   useEffect(() => {
