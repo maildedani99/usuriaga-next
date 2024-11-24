@@ -5,6 +5,7 @@ import { AppContext } from "../lib/AppContext";
 import { HiLockClosed } from "react-icons/hi2";
 import useProducts from "../lib/utils";
 import { useRouter } from "next/navigation";
+import { BsShareFill } from "react-icons/bs";
 
 export default function ButtonAddToCart({ item }) {
   const {
@@ -80,14 +81,13 @@ export default function ButtonAddToCart({ item }) {
             <div
               key={index}
               onClick={() => setColorSelectedOption(e.color)}
-              className={`tooltip w-5 h-5 border-2 border-[#929292] rounded-full inline-block mr-2 cursor-pointer ${
-                colorSelectedOption && e.color?.id === colorSelectedOption?.id
+              className={`tooltip w-5 h-5 border-2 border-[#929292] rounded-full inline-block mr-2 cursor-pointer ${colorSelectedOption && e.color?.id === colorSelectedOption?.id
                   ? "border-black"
                   : "border-[#929292]"
-              }`}
+                }`}
               style={{ background: e?.color?.color }}
             >
-              <span className="tooltiptext">{e.color.name}</span>
+              <span className="tooltiptext">{e?.color?.name}</span>
             </div>
           ))}
       </div>
@@ -101,11 +101,10 @@ export default function ButtonAddToCart({ item }) {
                   <div
                     key={index}
                     onClick={() => setSizeSelectedOption(size)}
-                    className={`flex border w-8 h-8 mr-3 mt-2 font-normal cursor-pointer ${
-                      sizeSelectedOption && sizeSelectedOption.id === size.id
+                    className={`flex border w-8 h-8 mr-3 mt-2 font-normal cursor-pointer ${sizeSelectedOption && sizeSelectedOption.id === size.id
                         ? "bg-primary"
                         : ""
-                    }`}
+                      }`}
                   >
                     <span className="mx-auto my-auto text-base">
                       {size?.name}
@@ -130,6 +129,8 @@ export default function ButtonAddToCart({ item }) {
         <span className="text-base text-primary my-auto ml-1 mt-1">
           Pago seguro
         </span>
+       
+
       </div>
     </div>
   );

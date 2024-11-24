@@ -8,7 +8,7 @@ import Spinner from "../../../components/Spinner";
 
 export default  function Outlet () {
 
-  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}products/novelties/all`, fetcher);
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}products/outlet/all`, fetcher);
 
   // Manejo de errores y estado de carga
   if (error) return <div>Error al cargar las novedades</div>;

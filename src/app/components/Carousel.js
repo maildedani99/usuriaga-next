@@ -29,13 +29,13 @@ export default function Carousel({ product }) {
     <div className="relative">
       <AiOutlineLeft
         onClick={handlePrevSlide}
-        className="absolute left-0 m-auto text-5xl inset-y-1/2 cursor-pointer text-gray-400 z-20"
+        className="absolute left-0 m-auto text-5xl inset-y-1/2 cursor-pointer text-gray-400 "
       />
       <div className="w-full  flex overflow-hidden relative m-auto">
         <Swipe
           onSwipeLeft={handleNextSlide}
           onSwipeRight={handlePrevSlide}
-          className="relative z-10 w-full h-full"
+          className="relative  w-full h-full"
         >
           {product?.images?.map((image, index) => {
             if (index === currentSlide) {
@@ -54,7 +54,7 @@ export default function Carousel({ product }) {
       </div>
       <AiOutlineRight
         onClick={handleNextSlide}
-        className="absolute right-0 m-auto text-5xl inset-y-1/2 cursor-pointer text-gray-400 z-20"
+        className="absolute right-0 m-auto text-5xl inset-y-1/2 cursor-pointer text-gray-400 "
       />
 
       <div className="relative flex justify-center p-2">

@@ -1,3 +1,4 @@
+"use client"
 import { BiSolidError } from "react-icons/bi";
 import { ColorRing } from "react-loader-spinner";
 

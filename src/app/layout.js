@@ -5,14 +5,12 @@ import Footer from "./components/Footer";
 import { workSans } from "./ui/fonts";
 import { CartProvider } from "./lib/AppContext";
 import Head from 'next/head';
-import { SWRConfig } from "swr";
-import swrConfig from "./utils/swrConfig";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Usuriaga Collection",
-  description: "Tiendo de moda online con precios competitivos y envios",
+  description: "Tienda de moda online con precios competitivos",
 };
 
 export default function RootLayout({ children, modals, products }) {
@@ -39,7 +37,7 @@ export default function RootLayout({ children, modals, products }) {
           <Navbar />
           {children}
           {modals}
-          {products}
+          
         </CartProvider>
         <Footer />
       </body>

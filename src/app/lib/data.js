@@ -69,13 +69,11 @@ export  async function getRedsysData (redsysData) {
     amount: redsysData.total?.toFixed(2),
     order: redsysData.ds_order
   }
-  console.log(body)
   const url = process.env.NEXT_PUBLIC_API_URL +  "redsys/generate-signature";
   return await fetchApiData(url, "POST", body);
 }
 
 export  async function completeOrderProcess (formData, orderItems, order) {
-  console.log(orderItems)
    const body = {
     customer: formData,
       order: order,
@@ -83,6 +81,11 @@ export  async function completeOrderProcess (formData, orderItems, order) {
     }
     const url = process.env.NEXT_PUBLIC_API_URL +  "orders/completeOrderProcess";
   return await fetchApiData(url, "POST",body);
+}
+
+export  async function comfirmOrder (orderId) {
+   const url = process.env.NEXT_PUBLIC_API_URL +  "order/confirm/" + orderId;
+ return await fetchApiData(url, "POST");
 }
 
 

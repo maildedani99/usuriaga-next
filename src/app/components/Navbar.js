@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import PropTypes from "prop-types";
 import "./navbar.css";
@@ -12,12 +13,19 @@ import NavbarMobile from "./navbarMobile/NavbarMobile";
 import SearchBar from "./SearchBar";
 import SearchButton from "./Searchbutton";
 import NavbarLinksDesktop from "./NavbarLinksDesktop";
+import useSWR from "swr";
+import { fetcher } from "../utils/fetcher";
+import Error from "./Error";
 
 
-export default async function Navbar() {
-  const categories = await getCategories();
+export default  function Navbar() {
 
-  const categoriesPlain = JSON.parse(JSON.stringify(categories))
+  const { data: categories, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}categories/all`, fetcher);
+
+  if (error) return <Error />;
+  //const categories = await getCategories();
+
+  //const categoriesPlain = JSON.parse(JSON.stringify(categories))
 
   return (
     <>
@@ -42,7 +50,7 @@ export default async function Navbar() {
             />
           </Link>
 
-          <NavbarLinksDesktop categories={categoriesPlain ? categoriesPlain : []} />
+          <NavbarLinksDesktop categories={categories && categories} />
           <div className="flex  	py-10 px-6 justify-evenly w-2/12 max-w-sm opacity-70">
           <SearchButton />
             <CartIcon />
@@ -52,7 +60,8 @@ export default async function Navbar() {
      
       </div>
       <div className="flex lg:hidden w-full fixed flex-col bg-white top-0 z-10	">
-        <NavbarMobile categories={categoriesPlain ? categoriesPlain : []} />
+      {categories && <NavbarMobile categories={categories} />}
+
       </div>
     </>
   );
