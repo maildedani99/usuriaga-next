@@ -30,15 +30,15 @@ export default function QuantitySelector({ item }) {
   };
 
   return (
-    <div className="flex w-auto mx-auto text-slate-500">
-      <input
-        type="number"
-        className="border p-2 text-center w-full"
-        value={quantity}
-        min="1"
-        max="99"
-        onChange={handleChange}
-      />
-    </div>
+      <div className="flex w-auto mx-auto text-slate-500">
+        <input
+          type="number"
+          className="border p-2 text-center w-full"
+          value={quantity}
+          min="1"
+          max="99"
+          onChange={handleChange}
+        />
+      </div>
   );
 }

@@ -12,7 +12,7 @@ export default function CartItems() {
   const { cartItems, removeItemFromCart, handlePlus } = useContext(AppContext);
 
   const calculatePrice = (item) => item.reduced_price ? item.reduced_price : item.price;
-  
+
   return (
     <div className="flex flex-col w-full lg:mx-10">
       {cartItems && cartItems.length !== 0 ? (
@@ -48,9 +48,12 @@ export default function CartItems() {
                   </div>
                 </div>
                 <div className="flex mx-auto sm:mx-0 flex-col sm:flex-row flex-1 my-auto justify-center sm:justify-start">
-                  <QuantitySelector item={item} handlePlus={handlePlus} />
+                  {/* <QuantitySelector item={item} handlePlus={handlePlus} /> */}
+                  <div className="flex w-auto mx-auto text-slate-500 ">
+                    {item.quantity}
+                  </div>
                 </div>
-                <span className="flex flex-col text-center px-3 text-xl my-auto font-semibold">
+                <span className="flex flex-col text-center px-3 text-xl my-auto font-normal">
                   {totalPrice.toFixed(2).toString().replace('.', ',')} €
                 </span>
                 <div
