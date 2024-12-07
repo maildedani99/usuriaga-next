@@ -3,7 +3,6 @@ import useSWR from "swr";
 import ProductsView from "../../../components/ProductsView";
 import { fetcher } from "../../../utils/fetcher";
 import Error from "../../../components/Error";
-import BannerPromo from "../../../components/BannerPromo";
 
 
 export default function Novelties() {
@@ -14,8 +13,6 @@ export default function Novelties() {
 
 
   return (
-    <>
       <ProductsView products={data} title="Novedades" />
-    </>
     )
 }

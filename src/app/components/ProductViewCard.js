@@ -10,8 +10,6 @@ export default function ProductViewCard({ product }) {
 
   const router = useRouter();
 
-  const promo = 0.75;
-
 
   // Function to convert newline characters to <br/> tags
   const formatDescription = (description) => {
@@ -42,45 +40,32 @@ export default function ProductViewCard({ product }) {
           <>
             <div className="flex flex-col my-auto w-full justify-center lg:w-4/12">
               <CarouselWrapper product={product} />
-
+            
             </div>
             <div className="text-2xl flex flex-col my-auto w-full lg:w-2/6">
               <div className="flex flex-col text-justify w-6/6">
                 <span className="text-3xl font-medium">{product.name}</span>
-                <div className="flex py-2">
-                {product.reduced_price !== 0 ?
-                  (
-                    <div className="flex flex-row text-xl ml-1">
-                      <span className="mt-2 line-through mr-1">
-                        {product.price.toFixed(2).replace('.', ',')} €{" "}
-                      </span>
-                      <span className="mt-2 text-red-600 ml-1">
-                        {product.reduced_price.toFixed(2).replace('.', ',')} €
-                      </span>
-                    </div>
-                  ) : (
-                    <span className="mt-2 text-xl">
-                      {product.price.toFixed(2).replace('.', ',')} €
+                {product.reduced_price !== 0 ? (
+                  <div className="flex flex-row text-xl ml-1">
+                    <span className="mt-2 line-through mr-1">
+                      {product.price.toFixed(2).replace('.', ',')} €{" "}
                     </span>
-                  )
-                }
-                < div className="flex flex-row  w-1/3 mt-2 mx-auto  text-xl text-primary justify-center font-bold bg-[#1B1B1B] shadow shadow-black ">
-                  <span>
-                    {product.reduced_price
-                      ? (product.reduced_price * promo).toFixed(2).replace(".", ",")
-                      : (product.price * promo).toFixed(2).replace(".", ",")}
-                    €
+                    <span className="mt-2 text-red-600 ml-1">
+                      {product.reduced_price.toFixed(2).replace('.', ',')} €
+                    </span>
+                  </div>
+                ) : (
+                  <span className="mt-2 text-xl">
+                    {product.price.toFixed(2).replace('.', ',')} €
                   </span>
-                </div>
-                </div>
-
+                )}
                 <span className="font-body text-base tracking-wider font-light mt-4">
                   {formatDescription(product.description)}
                 </span>
                 <div className="flex mt-10 text-lg cursor-pointer " onClick={handleShare}>
-                  <BsShareFill className=" my-auto" size={20} />
-                  <span className="ml-3">Compartir producto</span>
-                </div>
+                <BsShareFill className=" my-auto" size={20} />
+                <span className="ml-3">Compartir producto</span>
+              </div>
               </div>
               <div className="flex w-full">
                 <ButtonAddToCart item={product} />
@@ -92,6 +77,6 @@ export default function ProductViewCard({ product }) {
         }
 
       </div>
-    </div >
+    </div>
   );
 }

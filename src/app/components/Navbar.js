@@ -16,10 +16,9 @@ import NavbarLinksDesktop from "./NavbarLinksDesktop";
 import useSWR from "swr";
 import { fetcher } from "../utils/fetcher";
 import Error from "./Error";
-import BannerPromo from "./BannerPromo";
 
 
-export default function Navbar() {
+export default  function Navbar() {
 
   const { data: categories, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}categories/all`, fetcher);
 
@@ -34,14 +33,12 @@ export default function Navbar() {
         <div
           className="flex  flex-1 border-b 	bg-primary"
         >
-         {/*  <div className="flex flex-1 w-3/5 justify-center  p-1 	 tracking-widest ">
+          <div className="flex flex-1 w-3/5 justify-center  p-1 	 tracking-widest ">
             <span className="text-w">
               ENVÍOS GRATIS para compras superiores a 60€
             </span>
-          </div> */}
+          </div>
         </div>
-        <BannerPromo />
-
         <div className="flex flex-row flex-1 border-b">
           <Link href="/products/novelties" className=" p-6 w-2/12	my-auto ">
             <Image
@@ -49,21 +46,21 @@ export default function Navbar() {
               src="/logogrisprueba.png"
               alt="Usuriaga"
               width={250}
-              height={100}
+              height={100}  
             />
           </Link>
 
           <NavbarLinksDesktop categories={categories && categories} />
           <div className="flex  	py-10 px-6 justify-evenly w-2/12 max-w-sm opacity-70">
-            <SearchButton />
+          <SearchButton />
             <CartIcon />
           </div>
-
+       
         </div>
-
+     
       </div>
       <div className="flex lg:hidden w-full fixed flex-col bg-white top-0 z-10	">
-        {categories && <NavbarMobile categories={categories} />}
+      {categories && <NavbarMobile categories={categories} />}
 
       </div>
     </>
