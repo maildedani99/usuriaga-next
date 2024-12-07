@@ -1,5 +1,4 @@
 "use client"
-
 import { useContext } from "react";
 import { AppContext } from "../lib/AppContext";
 import Link from "next/link";
@@ -17,13 +16,7 @@ export default function SummaryCart(props) {
   };
 
   const totalPrice = roundToTwoDecimals(calculateTotalPrice());
-
-  // Calculamos el descuento del 25%
-  const discount = roundToTwoDecimals(totalPrice * 0.25);
-  const discountedSubtotal = roundToTwoDecimals(totalPrice - discount);
-
-  // Calculamos el envío basado en el subtotal descontado
-  const envio = discountedSubtotal >= 60 ? 0 : 3.90;
+  const envio = totalPrice >= 60 ? 0 : 3.90;
 
   return (
     <div className="flex flex-col flex-1">
@@ -32,7 +25,6 @@ export default function SummaryCart(props) {
           <div className="mt-8 text-2xl px-6">
             <span>Resumen Cesta</span>
           </div>
-          {/* Subtotal antes del descuento */}
           <div className="flex w-3/3 border-y-2 border-[#DAC895] py-3 justify-between mx-6 mt-10">
             <div>
               <span className="uppercase text-lg">subtotal</span>
@@ -42,17 +34,6 @@ export default function SummaryCart(props) {
               <span>{formatPrice(totalPrice)} €</span>
             </div>
           </div>
-          {/* Descuento aplicado */}
-          <div className="flex w-3/3 py-3 justify-between mx-6 mt-6">
-            <div>
-              <span className="uppercase text-lg">descuento 25%</span>
-            </div>
-            <div>
-              <span>-{formatPrice(discount)} €</span>
-            </div>
-          </div>
-          
-          {/* Costo de envío */}
           <div className="flex w-3/3 py-3 justify-between mx-6 mt-6">
             <div>
               <span className="uppercase text-lg">envío</span>
@@ -61,16 +42,14 @@ export default function SummaryCart(props) {
               <span>{formatPrice(envio)} €</span>
             </div>
           </div>
-          {/* Total final */}
           <div className="flex w-3/3 border-t-2 border-[#DAC895] py-3 justify-between mx-6 mt-10">
             <div>
               <span className="uppercase text-lg">total</span>
             </div>
             <div>
-              <span>{formatPrice(discountedSubtotal + envio)} €</span>
+              <span>{formatPrice(totalPrice + envio)} €</span>
             </div>
           </div>
-          {/* Botón Comprar */}
           <div className="flex w-5/6 p-8 mx-auto mt-16">
             <Link
               href="/payForm"
