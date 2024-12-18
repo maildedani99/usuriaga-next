@@ -1,11 +1,12 @@
-"use client"
+"use client";
+
 import { useContext } from "react";
 import { AppContext } from "../lib/AppContext";
 import Link from "next/link";
 import { roundToTwoDecimals, formatPrice } from "../lib/helpers";
 
 export default function SummaryCart(props) {
-  const { cartItems } = useContext(AppContext);
+  const { cartItems, globalDiscount } = useContext(AppContext);
 
   const calculateTotalPrice = () => {
     return cartItems.reduce((total, item) => {
@@ -15,7 +16,12 @@ export default function SummaryCart(props) {
     }, 0);
   };
 
-  const totalPrice = roundToTwoDecimals(calculateTotalPrice());
+  const totalPriceWithoutDiscount = roundToTwoDecimals(calculateTotalPrice());
+  const discountAmount = globalDiscount
+    ? roundToTwoDecimals(totalPriceWithoutDiscount * (globalDiscount / 100))
+    : 0;
+  const totalPrice = totalPriceWithoutDiscount - discountAmount;
+
   const envio = totalPrice >= 60 ? 0 : 3.90;
 
   return (
@@ -31,15 +37,25 @@ export default function SummaryCart(props) {
               <span> (impuestos inc.) </span>
             </div>
             <div>
-              <span>{formatPrice(totalPrice)} €</span>
+              <span>{formatPrice(totalPriceWithoutDiscount)} €</span>
             </div>
           </div>
+          {globalDiscount > 0  && (
+            <div className="flex w-3/3 py-3 justify-between mx-6 mt-6">
+              <div>
+                <span className="uppercase text-lg">descuento {globalDiscount}%</span>
+              </div>
+              <div>
+                <span>-{formatPrice(discountAmount)} €</span>
+              </div>
+            </div>
+          )}
           <div className="flex w-3/3 py-3 justify-between mx-6 mt-6">
             <div>
               <span className="uppercase text-lg">envío</span>
             </div>
             <div>
-              <span>{formatPrice(envio)} €</span>
+              <span>{formatPrice(envio)} €</span> 
             </div>
           </div>
           <div className="flex w-3/3 border-t-2 border-[#DAC895] py-3 justify-between mx-6 mt-10">
@@ -53,7 +69,9 @@ export default function SummaryCart(props) {
           <div className="flex w-5/6 p-8 mx-auto mt-16">
             <Link
               href="/payForm"
-              className={`flex flex-1 p-4 text-xl text-white text-center mb-8 cursor-pointer bg-primary ${cartItems.length === 0 && 'cursor-default opacity-50'}`}
+              className={`flex flex-1 p-4 text-xl text-white text-center mb-8 cursor-pointer bg-primary ${
+                cartItems.length === 0 && "cursor-default opacity-50"
+              }`}
             >
               <span className="mx-auto font-semibold">Comprar</span>
             </Link>
