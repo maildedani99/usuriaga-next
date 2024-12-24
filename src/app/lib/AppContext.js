@@ -17,7 +17,7 @@ export const CartProvider = ({ children }) => {
     const [order, setOrder] = useState({ orderAmount: 0 });
     const [redsysData, setRedsysData] = useState({});
     const [orderItems, setOrderItems] = useState([]);
-    const [globalDiscount, setGlobalDiscount] = useState(35)
+    const [globalDiscount, setGlobalDiscount] = useState(0)
 
     const addItemToCart = (item, sizeSelectedOption, colorSelectedOption) => {
         const matchItemIndex = cartItems.findIndex(
