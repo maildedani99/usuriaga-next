@@ -6,9 +6,16 @@ import Error from "../../../components/Error";
 
 
 export default function Novelties() {
-
-  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}products/novelties/all`, fetcher);
-
+  const { data, error } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_URL}products/novelties/all`,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      errorRetryCount: 3,
+      errorRetryInterval: 2000,
+    }
+  );
+  
   if (error) return <Error />;
 
 
