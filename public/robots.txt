@@ -1,9 +1,12 @@
-# *
 User-agent: *
-Allow: /
+Disallow: /payForm
+Disallow: /paySummary
+Disallow: /paymentOk
+Disallow: /paymentKo
+Disallow: /cartView
+Disallow: /products/
+Disallow: /terms
+Disallow: /legals
+Disallow: /changes
 
-# Host
-Host: https://www.usuriaga.com
-
-# Sitemaps
 Sitemap: https://www.usuriaga.com/sitemap.xml
