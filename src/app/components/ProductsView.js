@@ -1,7 +1,7 @@
 import ProductCard from "./ProductCard";
 import Spinner from "./Spinner";
 
-export default function ProductsView({ products, title }) {
+export default function ProductsView({ products, title, error }) {
 
   return (
     <>

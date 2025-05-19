@@ -6,7 +6,7 @@ import Error from "../../../components/Error";
 
 
 export default function Novelties() {
-  const { data, error } = useSWR(
+  const { data, error, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}products/novelties/all`,
     fetcher,
     {
@@ -19,6 +19,6 @@ export default function Novelties() {
 
 
   return (
-      <ProductsView products={data} title="Novedades" />
+      <ProductsView products={data} title="Novedades" error={error} />
     )
 }

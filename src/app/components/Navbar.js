@@ -20,12 +20,11 @@ import Error from "./Error";
 
 export default  function Navbar() {
 
-  const { data: categories, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}categories/all`, fetcher);
+  const { data: categories, error, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}categories/all`, fetcher);
 
-  if (error) return <Error />;
-  //const categories = await getCategories();
 
-  //const categoriesPlain = JSON.parse(JSON.stringify(categories))
+  if (error && !isLoading) return <Error />;
+
 
   return (
     <>
