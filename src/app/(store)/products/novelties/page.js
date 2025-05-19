@@ -16,7 +16,6 @@ export default function Novelties() {
     }
   );
   
-  if (error) return <Error />;
 
 
   return (
