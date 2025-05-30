@@ -1,14 +1,13 @@
 import ProductCard from "./ProductCard";
-import Spinner from "./Spinner";
 
-export default function ProductsView({ products, title, error }) {
-
+export default function ProductsView({ products, title }) {
   return (
     <>
       <div className="flex text-5xl justify-center w-full tracking-wider capitalize font-light text-[#515151] text-center">
         <span>{title}</span>
       </div>
-      {products ? products.length > 0 ? (
+
+      {products.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 text-5xl justify-center w-full tracking-wider font-light text-[#515151] text-center">
           {products.slice().reverse().map((product) => (
             <ProductCard product={product} key={product.id} />
@@ -22,10 +21,7 @@ export default function ProductsView({ products, title, error }) {
             </h1>
           </div>
         </div>
-      )
-    :
-    <Spinner />
-    }
+      )}
     </>
   );
 }

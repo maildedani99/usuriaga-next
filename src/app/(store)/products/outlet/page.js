@@ -1,20 +1,36 @@
-"use client"
+"use client";
+
 import useSWR from "swr";
 import ProductsView from "../../../components/ProductsView";
-import { getOutletProducts } from "../../../lib/data";
 import { fetcher } from "../../../utils/fetcher";
 import Spinner from "../../../components/Spinner";
+import Error from "../../../components/Error";
+import { useState } from "react";
 
+export default function Outlet() {
+  const [hasRetried, setHasRetried] = useState(0);
+  const MAX_RETRIES = 3;
 
-export default  function Outlet () {
+  const { data, error, isLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_URL}products/outlet/all`,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      errorRetryCount: MAX_RETRIES,
+      errorRetryInterval: 2000,
+      onErrorRetry: (err, key, config, revalidate, { retryCount }) => {
+        setHasRetried(retryCount);
 
-  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}products/outlet/all`, fetcher);
+        if (retryCount >= MAX_RETRIES) return; // no más reintentos
+        setTimeout(() => revalidate({ retryCount }), config.errorRetryInterval);
+      },
+    }
+  );
 
-  // Manejo de errores y estado de carga
-  if (error) return <div>Error al cargar las novedades</div>;
+  const showError = error && hasRetried >= MAX_RETRIES;
 
+  if (isLoading) return <Spinner />;
+  if (showError) return <Error />;
 
-    return (
-      <ProductsView products={data} title="Outlet" />
-    )
+  return <ProductsView products={data} title="Outlet" />;
 }
