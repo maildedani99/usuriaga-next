@@ -16,63 +16,56 @@ export default function Carousel({ product }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const handleNextSlide = () => {
-    let newSlide = currentSlide === product.images.length - 1 ? 0 : currentSlide + 1;
-    setCurrentSlide(newSlide);
+    setCurrentSlide((currentSlide + 1) % product.images.length);
   };
 
   const handlePrevSlide = () => {
-    let newSlide = currentSlide === 0 ? product.images.length - 1 : currentSlide - 1;
-    setCurrentSlide(newSlide);
+    setCurrentSlide((currentSlide - 1 + product.images.length) % product.images.length);
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <AiOutlineLeft
         onClick={handlePrevSlide}
-        className="absolute left-0 m-auto text-5xl inset-y-1/2 cursor-pointer text-gray-400 "
+        className="absolute left-0 m-auto text-4xl inset-y-1/2 cursor-pointer text-gray-400 z-10"
       />
-      <div className="w-full  flex overflow-hidden relative m-auto">
+
+      <div className="w-full overflow-hidden">
         <Swipe
           onSwipeLeft={handleNextSlide}
           onSwipeRight={handlePrevSlide}
-          className="relative  w-full h-full"
+          className="w-full"
         >
-          {product?.images?.map((image, index) => {
-            if (index === currentSlide) {
-              return (
-                <ClientImage
+          {product?.images?.map((image, index) =>
+            index === currentSlide ? (
+              <ClientImage
+                key={image.id}
                 alt="Imagen"
-                  key={image.id}
-                  src={image.url}
-                    width={450}
-                    height={680}
-                />
-              );
-            }
-          })}
+                src={image.url}
+                width={450}
+                height={680}
+                className="w-full h-auto object-cover"
+              />
+            ) : null
+          )}
         </Swipe>
       </div>
+
       <AiOutlineRight
         onClick={handleNextSlide}
-        className="absolute right-0 m-auto text-5xl inset-y-1/2 cursor-pointer text-gray-400 "
+        className="absolute right-0 m-auto text-4xl inset-y-1/2 cursor-pointer text-gray-400 z-10"
       />
 
-      <div className="relative flex justify-center p-2">
-        {product?.images?.map((_, index) => {
-          return (
-            <div
-              className={
-                index === currentSlide
-                  ? "h-4 w-4 bg-gray-700 rounded-full mx-2 mb-2 cursor-pointer"
-                  : "h-4 w-4 bg-gray-300 rounded-full mx-2 mb-2 cursor-pointer"
-              }
-              key={index}
-              onClick={() => {
-                setCurrentSlide(index);
-              }}
-            />
-          );
-        })}
+      <div className="flex justify-center p-2">
+        {product?.images?.map((_, index) => (
+          <div
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`h-3 w-3 rounded-full mx-1 mb-2 cursor-pointer ${
+              index === currentSlide ? 'bg-gray-700' : 'bg-gray-300'
+            }`}
+          />
+        ))}
       </div>
     </div>
   );
